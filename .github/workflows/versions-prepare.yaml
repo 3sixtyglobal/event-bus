@@ -45,18 +45,26 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      # If we are updating next version we need to ensure we merge the latest changes from main
-      - name: Merge Main into Next
-        if: github.event.inputs.versionType == 'next' # Only run this step if we are update next versions
-        run: |
-          git merge --strategy-option theirs origin/main
-
       # Set up Node.js environment for running npm commands
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20' # Use Node.js 20.x
 
+      # Create a new branch for the version update
+      - name: Create Version Update Branch
+        run: |
+          BRANCH_NAME="release/versions-prepare-${{ github.event.inputs.versionType }}-$(date +%s)"
+          git checkout -b $BRANCH_NAME
+          git push --set-upstream origin $BRANCH_NAME
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          
+      # If we are updating next version we need to ensure we merge the latest changes from main
+      - name: Merge Main into Next
+        if: github.event.inputs.versionType == 'next' # Only run this step if we are update next versions
+        run: |
+          git merge --no-ff --strategy-option theirs origin/main
+          
       # Update the versions
       - name: Update Versions
         id: update-versions
@@ -77,14 +85,6 @@ jobs:
           npm run format
           npm run lint
           node ./scripts/workspaces.mjs dist:no-test
-
-      # Create a new branch for the version update
-      - name: Create Version Update Branch
-        run: |
-          BRANCH_NAME="release/versions-prepare-${{ github.event.inputs.versionType }}-$(date +%s)"
-          git checkout -b $BRANCH_NAME
-          git push --set-upstream origin $BRANCH_NAME
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
       # Stage all changes for commit
       - name: Commit Changes
