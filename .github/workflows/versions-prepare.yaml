@@ -44,14 +44,10 @@ jobs:
         run: |
           # Import the GPG private key from secrets, which should be base64 encoded
           echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --import
-          # To simplify the signing processes 
-          gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASS_PHRASE" --edit-key "$GPG_KEY_ID" passwd
-
           echo "GPG_KEY_ID=$GPG_KEY_ID" >> $GITHUB_ENV
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }} # Base64 encoded private key
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }} # GPG key ID
-          GPG_PASS_PHRASE: ${{ secrets.GPG_PASS_PHRASE }} # Passphrase for GPG key
 
       # Set git config once for all subsequent steps
       - name: Configure Git
