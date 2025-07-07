@@ -51,8 +51,8 @@ jobs:
       # Set git config once for all subsequent steps
       - name: Configure Git
         run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github@twindev.org"
+          git config --global user.name "github-twindev"
           git config --global user.signingkey "$GPG_KEY_ID"
           git config --global commit.gpgsign true
           git config --global tag.gpgsign true
