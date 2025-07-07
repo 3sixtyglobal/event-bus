@@ -39,7 +39,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Using GITHUB_TOKEN makes actions run as github-actions bot
+          token: ${{ secrets.GHA_RELEASE_TOKEN }} # Use elevated token that can bypass branch protection
+          fetch-depth: 0 # Fetch full history for proper commit operations
 
       # Set up Node.js environment for running npm commands
       - name: Setup Node.js
@@ -77,7 +78,6 @@ jobs:
             config['versioning'] = 'always-bump-${{ github.event.inputs.semverType }}';
             fs.writeFileSync('release/release-please-config.prod.json', JSON.stringify(config, null, 2));
           "
-
       # Run release-please to:
       # 1. Analyze commits since last release
       # 2. Determine appropriate version bumps
