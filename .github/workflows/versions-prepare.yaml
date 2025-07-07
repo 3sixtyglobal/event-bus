@@ -55,7 +55,7 @@ jobs:
       - name: Merge Main into Next
         if: github.event.inputs.versionType == 'next' # Only run this step if we are update next versions
         run: |
-          git merge --strategy-option theirs origin/main
+          git merge --no-ff -S --strategy-option theirs origin/main
           
       # Update the versions
       - name: Update Versions
