@@ -45,18 +45,57 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
+      # Generate a dynamic GPG key for signing
+      - name: Setup GPG Key
+        run: |
+          echo "Generating GPG key for signing..."
+          
+          # Create GPG key configuration
+          cat > gpg-key-config <<EOF
+          %echo Generating a basic OpenPGP key
+          Key-Type: RSA
+          Key-Length: 4096
+          Name-Real: github-actions[bot]
+          Name-Email: 41898282+github-actions[bot]@users.noreply.github.com
+          Expire-Date: 1d
+          %no-ask-passphrase
+          %no-protection
+          %commit
+          %echo done
+          EOF
+          
+          # Generate the key
+          gpg --batch --gen-key gpg-key-config
+          
+          # Get the key ID
+          KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep sec | cut -d'/' -f2 | cut -d' ' -f1)
+          echo "Generated GPG Key ID: $KEY_ID"
+          
+          # Configure git to use the new key
+          git config --global user.signingkey $KEY_ID
+          git config --global commit.gpgsign true
+          git config --global merge.gpgsign true
+          
+          # Store key ID for later use
+          echo "GPG_KEY_ID=$KEY_ID" >> $GITHUB_ENV
+          
+          # Verify GPG setup
+          echo "GPG configuration:"
+          gpg --list-secret-keys
+          git config --get user.signingkey          
+
+      # If we are updating next version we need to ensure we merge the latest changes from main
+      - name: Merge Main into Next
+        if: github.event.inputs.versionType == 'next' # Only run this step if we are update next versions
+        run: |
+          git merge -S --no-ff --strategy-option theirs origin/main
+
       # Set up Node.js environment for running npm commands
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20' # Use Node.js 20.x
 
-      # If we are updating next version we need to ensure we merge the latest changes from main
-      - name: Merge Main into Next
-        if: github.event.inputs.versionType == 'next' # Only run this step if we are update next versions
-        run: |
-          git merge --no-ff -S --strategy-option theirs origin/main
-          
       # Update the versions
       - name: Update Versions
         id: update-versions
