@@ -14,11 +14,6 @@ import type { IEventBusServiceConstructorOptions } from "./models/IEventBusServi
  */
 export class EventBusService implements IEventBusConnector {
 	/**
-	 * The namespace supported by the event bus connector.
-	 */
-	public static readonly NAMESPACE: string = "event-bus";
-
-	/**
 	 * Runtime name for the class.
 	 */
 	public readonly CLASS_NAME: string = nameof<EventBusService>();
