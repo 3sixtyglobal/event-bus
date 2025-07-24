@@ -1,8 +1,8 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import type {
-	IHttpRequestContext,
 	INoContentResponse,
+	ISocketRequestContext,
 	ISocketRoute,
 	ITag
 } from "@twin.org/api-models";
@@ -63,14 +63,14 @@ export function generateSocketRoutesEventBus(
 
 /**
  * Subscribe to a topic.
- * @param httpRequestContext The request context for the API.
+ * @param socketRequestContext The request context for the API.
  * @param componentName The name of the component to use in the routes.
  * @param request The request.
  * @param emitter The emitter to send message back.
  * @returns The response object with additional http response properties.
  */
 export async function eventBusSubscribe(
-	httpRequestContext: IHttpRequestContext,
+	socketRequestContext: ISocketRequestContext,
 	componentName: string,
 	request: IEventBusSubscribeRequest,
 	emitter: (topic: string, response: IEventBusSubscribeResponse | IEventBusPublish) => Promise<void>
@@ -95,14 +95,14 @@ export async function eventBusSubscribe(
 
 /**
  * Unsubscribe from a topic.
- * @param httpRequestContext The request context for the API.
+ * @param socketRequestContext The request context for the API.
  * @param componentName The name of the component to use in the routes.
  * @param request The request.
  * @param emitter The emitter to send message back.
  * @returns The response object with additional http response properties.
  */
 export async function eventBusUnsubscribe(
-	httpRequestContext: IHttpRequestContext,
+	socketRequestContext: ISocketRequestContext,
 	componentName: string,
 	request: IEventBusUnsubscribeRequest,
 	emitter: (topic: string, response: INoContentResponse) => Promise<void>
