@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/event-bus-socket-client",
-	"version": "0.0.2-next.0",
+	"version": "0.0.2-next.1",
 	"description": "Event bus component implementation which can connect to socket endpoints",
 	"repository": {
 		"type": "git",
@@ -33,7 +33,7 @@
 		"@twin.org/api-core": "next",
 		"@twin.org/api-models": "next",
 		"@twin.org/core": "next",
-		"@twin.org/event-bus-models": "0.0.2-next.0",
+		"@twin.org/event-bus-models": "0.0.2-next.1",
 		"@twin.org/logging-models": "next",
 		"@twin.org/nameof": "next"
 	},
@@ -44,8 +44,8 @@
 		"@twin.org/logging-connector-entity-storage": "next",
 		"@twin.org/entity-storage-models": "next",
 		"@twin.org/entity-storage-connector-memory": "next",
-		"@twin.org/event-bus-connector-local": "0.0.2-next.0",
-		"@twin.org/event-bus-service": "0.0.2-next.0",
+		"@twin.org/event-bus-connector-local": "0.0.2-next.1",
+		"@twin.org/event-bus-service": "0.0.2-next.1",
 		"@twin.org/nameof-transformer": "next",
 		"@twin.org/nameof-vitest-plugin": "next",
 		"@vitest/coverage-v8": "3.2.4",
