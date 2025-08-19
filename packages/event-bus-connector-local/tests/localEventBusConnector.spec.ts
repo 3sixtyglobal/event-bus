@@ -1,6 +1,6 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { GeneralError, I18n, RandomHelper } from "@twin.org/core";
+import { ComponentFactory, GeneralError, I18n, RandomHelper } from "@twin.org/core";
 import { MemoryEntityStorageConnector } from "@twin.org/entity-storage-connector-memory";
 import { EntityStorageConnectorFactory } from "@twin.org/entity-storage-models";
 import {
@@ -9,6 +9,7 @@ import {
 	initSchema
 } from "@twin.org/logging-connector-entity-storage";
 import { LoggingConnectorFactory } from "@twin.org/logging-models";
+import { LoggingService } from "@twin.org/logging-service";
 import { nameof } from "@twin.org/nameof";
 import { LocalEventBusConnector } from "../src/localEventBusConnector";
 
@@ -39,6 +40,7 @@ describe("LocalEventBusConnector", () => {
 		});
 		EntityStorageConnectorFactory.register("log-entry", () => memoryEntityStorage);
 		LoggingConnectorFactory.register("logging", () => new EntityStorageLoggingConnector());
+		ComponentFactory.register("logging", () => new LoggingService());
 
 		let timeCounter: number = 0;
 		const mockNow = vi.fn();

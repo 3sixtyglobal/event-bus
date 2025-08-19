@@ -1,8 +1,8 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { BaseError, Converter, Guards, RandomHelper } from "@twin.org/core";
+import { BaseError, ComponentFactory, Converter, Guards, RandomHelper } from "@twin.org/core";
 import type { EventBusCallback, IEvent, IEventBusConnector } from "@twin.org/event-bus-models";
-import { type ILoggingConnector, LoggingConnectorFactory } from "@twin.org/logging-models";
+import type { ILoggingComponent } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
 import type { ILocalEventBusConnectorConstructorOptions } from "./models/ILocalEventBusConnectorConstructorOptions";
 
@@ -24,7 +24,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * The logger for the event bus connector.
 	 * @internal
 	 */
-	private readonly _logging?: ILoggingConnector;
+	private readonly _logging?: ILoggingComponent;
 
 	/**
 	 * Subscriptions to the events.
@@ -42,7 +42,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @param options The options for the connector.
 	 */
 	constructor(options?: ILocalEventBusConnectorConstructorOptions) {
-		this._logging = LoggingConnectorFactory.getIfExists(options?.loggingConnectorType ?? "logging");
+		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType ?? "logging");
 		this._subscriptions = {};
 	}
 
