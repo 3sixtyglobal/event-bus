@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/event-bus-connector-local",
-	"version": "0.0.2-next.2",
+	"version": "0.0.2-next.3",
 	"description": "Event bus connector implementation local communication",
 	"repository": {
 		"type": "git",
@@ -30,7 +30,7 @@
 		"prepare": "ts-patch install -s"
 	},
 	"dependencies": {
-		"@twin.org/event-bus-models": "0.0.2-next.2",
+		"@twin.org/event-bus-models": "0.0.2-next.3",
 		"@twin.org/core": "next",
 		"@twin.org/nameof": "next",
 		"@twin.org/logging-models": "next"

@@ -1,5 +1,22 @@
 # @twin.org/event-bus-socket-client - Changelog
 
+## [0.0.2-next.3](https://github.com/twinfoundation/event-bus/compare/event-bus-socket-client-v0.0.2-next.2...event-bus-socket-client-v0.0.2-next.3) (2025-08-20)
+
+
+### Features
+
+* consistent logging naming ([541ae83](https://github.com/twinfoundation/event-bus/commit/541ae83755f8eabd591ba7fb472a616f63ddca98))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.2 to 0.0.2-next.3
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.2 to 0.0.2-next.3
+    * @twin.org/event-bus-service bumped from 0.0.2-next.2 to 0.0.2-next.3
+
 ## [0.0.2-next.2](https://github.com/twinfoundation/event-bus/compare/event-bus-socket-client-v0.0.2-next.1...event-bus-socket-client-v0.0.2-next.2) (2025-08-19)
 
 
