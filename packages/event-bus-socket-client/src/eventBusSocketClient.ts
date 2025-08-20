@@ -37,7 +37,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * The logging service for information.
 	 * @internal
 	 */
-	private readonly _loggingComponent?: ILoggingComponent;
+	private readonly _logging?: ILoggingComponent;
 
 	/**
 	 * Subscriptions to the events.
@@ -60,9 +60,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 		this._subscriptions = {};
 
-		if (Is.stringValue(options?.loggingComponentType)) {
-			this._loggingComponent = ComponentFactory.getIfExists(options?.loggingComponentType);
-		}
+		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType ?? "logging");
 
 		super.onEvent<IEventBusSubscribeResponse>("subscribe", async data =>
 			this.subscribeResponse(data)
@@ -97,7 +95,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 			super.sendEvent("subscribe", request);
 		}
 
-		await this._loggingComponent?.log({
+		await this._logging?.log({
 			level: "info",
 			source: this.CLASS_NAME,
 			ts: Date.now(),
@@ -121,7 +119,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 		for (const topic in this._subscriptions) {
 			if (this._subscriptions[topic].subscriberCallbacks[subscriptionId]) {
-				await this._loggingComponent?.log({
+				await this._logging?.log({
 					level: "info",
 					source: this.CLASS_NAME,
 					ts: Date.now(),
@@ -190,7 +188,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * @param err The error to handle.
 	 */
 	protected async handleError(err: IError): Promise<void> {
-		await this._loggingComponent?.log({
+		await this._logging?.log({
 			level: "error",
 			source: this.CLASS_NAME,
 			ts: Date.now(),
@@ -225,7 +223,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 						event.body
 					);
 				} catch (error) {
-					await this._loggingComponent?.log({
+					await this._logging?.log({
 						level: "error",
 						source: this.CLASS_NAME,
 						ts: Date.now(),
