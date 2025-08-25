@@ -1,5 +1,22 @@
 # @twin.org/event-bus-socket-client - Changelog
 
+## [0.0.2-next.4](https://github.com/twinfoundation/event-bus/compare/event-bus-socket-client-v0.0.2-next.3...event-bus-socket-client-v0.0.2-next.4) (2025-08-25)
+
+
+### Miscellaneous Chores
+
+* **event-bus-socket-client:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.3 to 0.0.2-next.4
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.3 to 0.0.2-next.4
+    * @twin.org/event-bus-service bumped from 0.0.2-next.3 to 0.0.2-next.4
+
 ## [0.0.2-next.3](https://github.com/twinfoundation/event-bus/compare/event-bus-socket-client-v0.0.2-next.2...event-bus-socket-client-v0.0.2-next.3) (2025-08-20)
 
 

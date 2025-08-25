@@ -1,5 +1,19 @@
 # @twin.org/event-bus-connector-local - Changelog
 
+## [0.0.2-next.4](https://github.com/twinfoundation/event-bus/compare/event-bus-connector-local-v0.0.2-next.3...event-bus-connector-local-v0.0.2-next.4) (2025-08-25)
+
+
+### Miscellaneous Chores
+
+* **event-bus-connector-local:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.3 to 0.0.2-next.4
+
 ## [0.0.2-next.3](https://github.com/twinfoundation/event-bus/compare/event-bus-connector-local-v0.0.2-next.2...event-bus-connector-local-v0.0.2-next.3) (2025-08-20)
 
 
