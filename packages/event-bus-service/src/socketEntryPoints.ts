@@ -5,8 +5,8 @@ import { generateSocketRoutesEventBus, tagsEventBus } from "./eventBusRoutes";
 
 export const socketEntryPoints: ISocketRouteEntryPoint[] = [
 	{
-		name: "immutable-proof",
-		defaultBaseRoute: "immutable-proof",
+		name: "event-bus",
+		defaultBaseRoute: "event-bus",
 		tags: tagsEventBus,
 		generateRoutes: generateSocketRoutesEventBus
 	}
