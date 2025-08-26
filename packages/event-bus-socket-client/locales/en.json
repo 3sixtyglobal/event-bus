@@ -1,5 +1,8 @@
 {
-	"error": {},
+	"error": {
+		"socketConnect": "Failure during socket connect",
+		"callback": "Error when calling local callback"
+	},
 	"info": {
 		"eventBusSocketClient": {
 			"subscribe": "Subscription created for topic \"{topic}\" with id \"{subscriptionId}\"",
