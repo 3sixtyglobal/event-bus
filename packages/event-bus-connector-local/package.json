@@ -72,5 +72,16 @@
 		"dist/types",
 		"locales",
 		"docs"
+	],
+	"keywords": [
+		"twin",
+		"trade",
+		"iota",
+		"framework",
+		"blockchain",
+		"event-bus",
+		"connector",
+		"adapter",
+		"integration"
 	]
 }
