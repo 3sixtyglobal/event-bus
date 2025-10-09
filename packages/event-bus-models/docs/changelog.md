@@ -1,5 +1,12 @@
 # @twin.org/event-bus-models - Changelog
 
+## [0.0.2-next.6](https://github.com/twinfoundation/event-bus/compare/event-bus-models-v0.0.2-next.5...event-bus-models-v0.0.2-next.6) (2025-10-09)
+
+
+### Features
+
+* add validate-locales ([4e11826](https://github.com/twinfoundation/event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+
 ## [0.0.2-next.5](https://github.com/twinfoundation/event-bus/compare/event-bus-models-v0.0.2-next.4...event-bus-models-v0.0.2-next.5) (2025-08-29)
 
 

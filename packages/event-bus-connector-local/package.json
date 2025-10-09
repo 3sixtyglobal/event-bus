@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/event-bus-connector-local",
-	"version": "0.0.2-next.5",
+	"version": "0.0.2-next.6",
 	"description": "Event bus connector implementation local communication",
 	"repository": {
 		"type": "git",
@@ -31,7 +31,7 @@
 		"dist:no-test": "npm run clean && npm run build && npm run bundle && npm run docs"
 	},
 	"dependencies": {
-		"@twin.org/event-bus-models": "0.0.2-next.5",
+		"@twin.org/event-bus-models": "0.0.2-next.6",
 		"@twin.org/core": "next",
 		"@twin.org/nameof": "next",
 		"@twin.org/logging-models": "next"
