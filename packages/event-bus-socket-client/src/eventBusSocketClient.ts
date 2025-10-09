@@ -31,7 +31,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<EventBusSocketClient>();
+	public static readonly CLASS_NAME: string = nameof<EventBusSocketClient>();
 
 	/**
 	 * The logging service for information.
@@ -77,8 +77,8 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * @returns The id of the subscription, to be used in unsubscribe.
 	 */
 	public async subscribe<T>(topic: string, callback: EventBusCallback<T>): Promise<string> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
-		Guards.function(this.CLASS_NAME, nameof(callback), callback);
+		Guards.stringValue(EventBusSocketClient.CLASS_NAME, nameof(topic), topic);
+		Guards.function(EventBusSocketClient.CLASS_NAME, nameof(callback), callback);
 
 		const subscriptionId = Converter.bytesToHex(RandomHelper.generate(16));
 
@@ -97,7 +97,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 		await this._logging?.log({
 			level: "info",
-			source: this.CLASS_NAME,
+			source: EventBusSocketClient.CLASS_NAME,
 			ts: Date.now(),
 			message: "subscribe",
 			data: {
@@ -115,13 +115,13 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * @returns Nothing.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(subscriptionId), subscriptionId);
+		Guards.stringValue(EventBusSocketClient.CLASS_NAME, nameof(subscriptionId), subscriptionId);
 
 		for (const topic in this._subscriptions) {
 			if (this._subscriptions[topic].subscriberCallbacks[subscriptionId]) {
 				await this._logging?.log({
 					level: "info",
-					source: this.CLASS_NAME,
+					source: EventBusSocketClient.CLASS_NAME,
 					ts: Date.now(),
 					message: "unsubscribe",
 					data: {
@@ -164,7 +164,9 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * @returns Nothing.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
-		throw new NotSupportedError(this.CLASS_NAME, "publish");
+		throw new NotSupportedError(EventBusSocketClient.CLASS_NAME, "notSupportedOnClient", {
+			methodName: "publish"
+		});
 	}
 
 	/**
@@ -190,7 +192,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	protected async handleError(err: IError): Promise<void> {
 		await this._logging?.log({
 			level: "error",
-			source: this.CLASS_NAME,
+			source: EventBusSocketClient.CLASS_NAME,
 			ts: Date.now(),
 			message: "socketConnect",
 			error: err
@@ -225,7 +227,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 				} catch (error) {
 					await this._logging?.log({
 						level: "error",
-						source: this.CLASS_NAME,
+						source: EventBusSocketClient.CLASS_NAME,
 						ts: Date.now(),
 						message: "callback",
 						error: BaseError.fromError(error),

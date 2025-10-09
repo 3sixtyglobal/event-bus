@@ -16,7 +16,7 @@ export class EventBusService implements IEventBusConnector {
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<EventBusService>();
+	public static readonly CLASS_NAME: string = nameof<EventBusService>();
 
 	/**
 	 * The event bus connector.
@@ -39,8 +39,8 @@ export class EventBusService implements IEventBusConnector {
 	 * @returns The id of the subscription, to be used in unsubscribe.
 	 */
 	public async subscribe<T>(topic: string, callback: EventBusCallback<T>): Promise<string> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
-		Guards.function(this.CLASS_NAME, nameof(callback), callback);
+		Guards.stringValue(EventBusService.CLASS_NAME, nameof(topic), topic);
+		Guards.function(EventBusService.CLASS_NAME, nameof(callback), callback);
 
 		return this._eventBus.subscribe(topic, callback);
 	}
@@ -51,7 +51,7 @@ export class EventBusService implements IEventBusConnector {
 	 * @returns Nothing.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(subscriptionId), subscriptionId);
+		Guards.stringValue(EventBusService.CLASS_NAME, nameof(subscriptionId), subscriptionId);
 
 		return this._eventBus.unsubscribe(subscriptionId);
 	}
@@ -63,7 +63,7 @@ export class EventBusService implements IEventBusConnector {
 	 * @returns Nothing.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
+		Guards.stringValue(EventBusService.CLASS_NAME, nameof(topic), topic);
 
 		return this._eventBus.publish(topic, data);
 	}

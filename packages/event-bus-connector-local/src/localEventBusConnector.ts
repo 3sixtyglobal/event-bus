@@ -18,7 +18,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<LocalEventBusConnector>();
+	public static readonly CLASS_NAME: string = nameof<LocalEventBusConnector>();
 
 	/**
 	 * The logger for the event bus connector.
@@ -53,8 +53,8 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @returns The id of the subscription, to be used in unsubscribe.
 	 */
 	public async subscribe<T>(topic: string, callback: EventBusCallback<T>): Promise<string> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
-		Guards.function(this.CLASS_NAME, nameof(callback), callback);
+		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(topic), topic);
+		Guards.function(LocalEventBusConnector.CLASS_NAME, nameof(callback), callback);
 
 		const subscriptionId = Converter.bytesToHex(RandomHelper.generate(16));
 
@@ -63,7 +63,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 
 		await this._logging?.log({
 			level: "info",
-			source: this.CLASS_NAME,
+			source: LocalEventBusConnector.CLASS_NAME,
 			ts: Date.now(),
 			message: "subscribe",
 			data: {
@@ -81,7 +81,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @returns Nothing.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(subscriptionId), subscriptionId);
+		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(subscriptionId), subscriptionId);
 
 		for (const topic in this._subscriptions) {
 			if (this._subscriptions[topic][subscriptionId]) {
@@ -95,7 +95,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 
 				await this._logging?.log({
 					level: "info",
-					source: this.CLASS_NAME,
+					source: LocalEventBusConnector.CLASS_NAME,
 					ts: Date.now(),
 					message: "unsubscribe",
 					data: {
@@ -115,7 +115,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @returns Nothing.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
+		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(topic), topic);
 
 		const event: IEvent<T> = {
 			id: Converter.bytesToHex(RandomHelper.generate(16)),
@@ -128,7 +128,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 
 		await this._logging?.log({
 			level: "info",
-			source: this.CLASS_NAME,
+			source: LocalEventBusConnector.CLASS_NAME,
 			ts: Date.now(),
 			message: "publish",
 			data: {
@@ -145,7 +145,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 				} catch (error) {
 					await this._logging?.log({
 						level: "error",
-						source: this.CLASS_NAME,
+						source: LocalEventBusConnector.CLASS_NAME,
 						ts: Date.now(),
 						message: "callback",
 						error: BaseError.fromError(error),

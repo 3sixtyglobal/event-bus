@@ -1,13 +1,15 @@
 {
 	"error": {
-		"socketConnect": "Failure during socket connect",
-		"callback": "Error when calling local callback"
+		"eventBusSocketClient": {
+			"socketConnect": "Failure during socket connect",
+			"callback": "Error when calling local callback",
+			"notSupportedOnClient": "The method \"{methodName}\" is not supported on the REST client, it can only be used on a server side component"
+		}
 	},
 	"info": {
 		"eventBusSocketClient": {
 			"subscribe": "Subscription created for topic \"{topic}\" with id \"{subscriptionId}\"",
-			"unsubscribe": "Subscription removed for topic \"{topic}\" with id \"{subscriptionId}\"",
-			"publish": "Event publish for topic \"{topic}\" with id \"{eventId}\", with \"{subscriptionCount}\" subscriptions"
+			"unsubscribe": "Subscription removed for topic \"{topic}\" with id \"{subscriptionId}\""
 		}
 	}
 }
