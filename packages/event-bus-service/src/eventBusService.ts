@@ -7,7 +7,7 @@ import {
 	type IEventBusConnector
 } from "@twin.org/event-bus-models";
 import { nameof } from "@twin.org/nameof";
-import type { IEventBusServiceConstructorOptions } from "./models/IEventBusServiceConstructorOptions";
+import type { IEventBusServiceConstructorOptions } from "./models/IEventBusServiceConstructorOptions.js";
 
 /**
  * Class for performing event bus operations over web sockets.
@@ -30,6 +30,14 @@ export class EventBusService implements IEventBusConnector {
 	 */
 	constructor(options?: IEventBusServiceConstructorOptions) {
 		this._eventBus = EventBusConnectorFactory.get(options?.eventBusConnectorType ?? "event-bus");
+	}
+
+	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return EventBusService.CLASS_NAME;
 	}
 
 	/**

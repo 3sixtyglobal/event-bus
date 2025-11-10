@@ -4,7 +4,7 @@ import { BaseError, ComponentFactory, Converter, Guards, RandomHelper } from "@t
 import type { EventBusCallback, IEvent, IEventBusConnector } from "@twin.org/event-bus-models";
 import type { ILoggingComponent } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
-import type { ILocalEventBusConnectorConstructorOptions } from "./models/ILocalEventBusConnectorConstructorOptions";
+import type { ILocalEventBusConnectorConstructorOptions } from "./models/ILocalEventBusConnectorConstructorOptions.js";
 
 /**
  * Class for performing event bus operations locally.
@@ -44,6 +44,14 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	constructor(options?: ILocalEventBusConnectorConstructorOptions) {
 		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType ?? "logging");
 		this._subscriptions = {};
+	}
+
+	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return LocalEventBusConnector.CLASS_NAME;
 	}
 
 	/**

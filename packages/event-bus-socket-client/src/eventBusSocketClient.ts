@@ -22,7 +22,7 @@ import type {
 } from "@twin.org/event-bus-models";
 import type { ILoggingComponent } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
-import type { IEventBusSocketClientConstructorOptions } from "./models/IEventBusSocketClientConstructorOptions";
+import type { IEventBusSocketClientConstructorOptions } from "./models/IEventBusSocketClientConstructorOptions.js";
 
 /**
  * Event bus which publishes using REST API and websockets.
@@ -65,9 +65,15 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 		super.onEvent<IEventBusSubscribeResponse>("subscribe", async data =>
 			this.subscribeResponse(data)
 		);
-		super.onEvent<IHttpResponse<IEvent<unknown>>>("publish", async data =>
-			this.incomingPublish(data)
-		);
+		super.onEvent<IHttpResponse<IEvent>>("publish", async data => this.incomingPublish(data));
+	}
+
+	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return EventBusSocketClient.CLASS_NAME;
 	}
 
 	/**
@@ -217,7 +223,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * @param event The incoming data.
 	 * @internal
 	 */
-	private async incomingPublish(event: IHttpResponse<IEvent<unknown>>): Promise<void> {
+	private async incomingPublish(event: IHttpResponse<IEvent>): Promise<void> {
 		if (!Is.empty(event.body) && this._subscriptions[event.body.topic]) {
 			for (const subscriptionId in this._subscriptions[event.body.topic].subscriberCallbacks) {
 				try {

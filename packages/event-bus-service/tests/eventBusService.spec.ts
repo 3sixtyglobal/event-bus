@@ -5,8 +5,8 @@ import { FastifyWebServer } from "@twin.org/api-server-fastify";
 import { ComponentFactory } from "@twin.org/core";
 import { LocalEventBusConnector } from "@twin.org/event-bus-connector-local";
 import { EventBusConnectorFactory } from "@twin.org/event-bus-models";
-import { generateSocketRoutesEventBus } from "../src/eventBusRoutes";
-import { EventBusService } from "../src/eventBusService";
+import { generateSocketRoutesEventBus } from "../src/eventBusRoutes.js";
+import { EventBusService } from "../src/eventBusService.js";
 
 describe("EventBusService", () => {
 	test("can construct with dependencies", async () => {

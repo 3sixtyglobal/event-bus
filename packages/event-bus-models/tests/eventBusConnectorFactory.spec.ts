@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { EventBusConnectorFactory } from "../src/factories/eventBusConnectorFactory";
-import type { IEventBusConnector } from "../src/models/IEventBusConnector";
+import { EventBusConnectorFactory } from "../src/factories/eventBusConnectorFactory.js";
+import type { IEventBusConnector } from "../src/models/IEventBusConnector.js";
 
 describe("IEventBusConnector", () => {
 	test("can add an item to the factory", async () => {

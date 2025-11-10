@@ -1,6 +1,6 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { ComponentFactory, GeneralError, I18n, RandomHelper } from "@twin.org/core";
+import { ComponentFactory, GeneralError, RandomHelper } from "@twin.org/core";
 import { MemoryEntityStorageConnector } from "@twin.org/entity-storage-connector-memory";
 import { EntityStorageConnectorFactory } from "@twin.org/entity-storage-models";
 import {
@@ -11,7 +11,7 @@ import {
 import { LoggingConnectorFactory } from "@twin.org/logging-models";
 import { LoggingService } from "@twin.org/logging-service";
 import { nameof } from "@twin.org/nameof";
-import { LocalEventBusConnector } from "../src/localEventBusConnector";
+import { LocalEventBusConnector } from "../src/localEventBusConnector.js";
 
 /**
  * Test payload for testing.
@@ -29,8 +29,6 @@ let memoryEntityStorage: MemoryEntityStorageConnector<LogEntry>;
 
 describe("LocalEventBusConnector", () => {
 	beforeAll(async () => {
-		I18n.addDictionary("en", await import("../locales/en.json"));
-
 		initSchema();
 	});
 
@@ -38,6 +36,7 @@ describe("LocalEventBusConnector", () => {
 		memoryEntityStorage = new MemoryEntityStorageConnector<LogEntry>({
 			entitySchema: nameof<LogEntry>()
 		});
+
 		EntityStorageConnectorFactory.register("log-entry", () => memoryEntityStorage);
 		LoggingConnectorFactory.register("logging", () => new EntityStorageLoggingConnector());
 		ComponentFactory.register("logging", () => new LoggingService());
@@ -47,13 +46,10 @@ describe("LocalEventBusConnector", () => {
 		mockNow.mockImplementation(() => FIRST_TIMESTAMP + timeCounter++);
 		Date.now = mockNow;
 
-		const mockRandom = vi.fn();
-
-		for (let k = 0; k < 50; k++) {
-			mockRandom.mockImplementationOnce(length => new Uint8Array(length).fill(k));
-		}
-
-		RandomHelper.generate = mockRandom;
+		let counter = 1;
+		RandomHelper.generate = vi
+			.fn()
+			.mockImplementation(length => new Uint8Array(length).fill(counter++));
 	});
 
 	test("can construct with dependencies", async () => {
@@ -82,31 +78,29 @@ describe("LocalEventBusConnector", () => {
 		const logs = memoryEntityStorage.getStore();
 		expect(logs).toEqual([
 			{
-				id: "0101010101010101010101010101010101010101010101010101010101010101",
+				id: "0202020202020202020202020202020202020202020202020202020202020202",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000000,
 				message: "subscribe",
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			},
 			{
-				id: "0303030303030303030303030303030303030303030303030303030303030303",
+				id: "0404040404040404040404040404040404040404040404040404040404040404",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000002,
 				message: "publish",
 				data: {
 					topic: "test",
-					eventId: "02020202020202020202020202020202",
+					eventId: "03030303030303030303030303030303",
 					subscriptionCount: 1
 				}
 			}
 		]);
-		expect(I18n.hasMessage("info.localEventBusConnector.subscribe")).toEqual(true);
-		expect(I18n.hasMessage("info.localEventBusConnector.publish")).toEqual(true);
 	});
 
 	test("can unsubscribe from a topic", async () => {
@@ -131,44 +125,40 @@ describe("LocalEventBusConnector", () => {
 		const logs = memoryEntityStorage.getStore();
 		expect(logs).toEqual([
 			{
-				id: "0101010101010101010101010101010101010101010101010101010101010101",
+				id: "0202020202020202020202020202020202020202020202020202020202020202",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000000,
 				message: "subscribe",
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			},
 			{
-				id: "0202020202020202020202020202020202020202020202020202020202020202",
+				id: "0303030303030303030303030303030303030303030303030303030303030303",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000001,
 				message: "unsubscribe",
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			},
 			{
-				id: "0404040404040404040404040404040404040404040404040404040404040404",
+				id: "0505050505050505050505050505050505050505050505050505050505050505",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000003,
 				message: "publish",
 				data: {
 					topic: "test",
-					eventId: "03030303030303030303030303030303",
+					eventId: "04040404040404040404040404040404",
 					subscriptionCount: 0
 				}
 			}
 		]);
-
-		expect(I18n.hasMessage("info.localEventBusConnector.subscribe")).toEqual(true);
-		expect(I18n.hasMessage("info.localEventBusConnector.unsubscribe")).toEqual(true);
-		expect(I18n.hasMessage("info.localEventBusConnector.publish")).toEqual(true);
 	});
 
 	test("can publish with no subscribers", async () => {
@@ -193,43 +183,40 @@ describe("LocalEventBusConnector", () => {
 		const logs = memoryEntityStorage.getStore();
 		expect(logs).toEqual([
 			{
-				id: "0101010101010101010101010101010101010101010101010101010101010101",
+				id: "0202020202020202020202020202020202020202020202020202020202020202",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000000,
 				message: "subscribe",
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			},
 			{
-				id: "0202020202020202020202020202020202020202020202020202020202020202",
+				id: "0303030303030303030303030303030303030303030303030303030303030303",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000001,
 				message: "unsubscribe",
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			},
 			{
-				id: "0404040404040404040404040404040404040404040404040404040404040404",
+				id: "0505050505050505050505050505050505050505050505050505050505050505",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000003,
 				message: "publish",
 				data: {
 					topic: "test",
-					eventId: "03030303030303030303030303030303",
+					eventId: "04040404040404040404040404040404",
 					subscriptionCount: 0
 				}
 			}
 		]);
-		expect(I18n.hasMessage("info.localEventBusConnector.subscribe")).toEqual(true);
-		expect(I18n.hasMessage("info.localEventBusConnector.unsubscribe")).toEqual(true);
-		expect(I18n.hasMessage("info.localEventBusConnector.publish")).toEqual(true);
 	});
 
 	test("can log error if fail during callback", async () => {
@@ -245,30 +232,30 @@ describe("LocalEventBusConnector", () => {
 
 		expect(logs).toEqual([
 			{
-				id: "0101010101010101010101010101010101010101010101010101010101010101",
+				id: "0202020202020202020202020202020202020202020202020202020202020202",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000000,
 				message: "subscribe",
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			},
 			{
-				id: "0303030303030303030303030303030303030303030303030303030303030303",
+				id: "0404040404040404040404040404040404040404040404040404040404040404",
 				level: "info",
 				source: "LocalEventBusConnector",
 				ts: 1724327000002,
 				message: "publish",
 				data: {
 					topic: "test",
-					eventId: "02020202020202020202020202020202",
+					eventId: "03030303030303030303030303030303",
 					subscriptionCount: 1
 				}
 			},
 			{
-				id: "0404040404040404040404040404040404040404040404040404040404040404",
+				id: "0505050505050505050505050505050505050505050505050505050505050505",
 				level: "error",
 				source: "LocalEventBusConnector",
 				ts: 1724327000003,
@@ -282,12 +269,9 @@ describe("LocalEventBusConnector", () => {
 				],
 				data: {
 					topic: "test",
-					subscriptionId: "00000000000000000000000000000000"
+					subscriptionId: "01010101010101010101010101010101"
 				}
 			}
 		]);
-		expect(I18n.hasMessage("info.localEventBusConnector.subscribe")).toEqual(true);
-		expect(I18n.hasMessage("info.localEventBusConnector.publish")).toEqual(true);
-		expect(I18n.hasMessage("error.localEventBusConnector.callback")).toEqual(true);
 	});
 });

@@ -1,6 +1,6 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import type { IEventBusSocketClientConfig } from "./IEventBusSocketClientConfig";
+import type { IEventBusSocketClientConfig } from "./IEventBusSocketClientConfig.js";
 
 /**
  * The options for the event bus socket client.

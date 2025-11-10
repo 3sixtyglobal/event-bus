@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import type { IComponent } from "@twin.org/core";
-import type { EventBusCallback } from "./eventBusCallback";
+import type { EventBusCallback } from "./eventBusCallback.js";
 
 /**
  * Interface describing a event bus connector.
