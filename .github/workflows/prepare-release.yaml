@@ -10,47 +10,134 @@ on:
   workflow_dispatch:
     inputs:
       # Allow the user to choose which type of release to prepare
-      semverType:
-        description: 'Which type of semver to release'
+      releaseType:
+        description: 'Which type of release to create'
         required: true
         type: choice
         options:
-          - 'prerelease' # For development releases (e.g., 0.1.0-next.1)
-          - 'patch' # For bug fixes (e.g., 0.1.1)
-          - 'minor' # For new features (e.g., 0.2.0)
-          - 'major' # For breaking changes (e.g., 1.0.0)
+          - '🚧 prerelease (next branch)' # For development releases (e.g., 0.1.0-next.1) - uses 'next' branch
+          - '🔧 patch (main branch)' # For bug fixes (e.g., 0.1.1) - uses 'main' branch
+          - '✨ minor (main branch)' # For new features (e.g., 0.2.0) - uses 'main' branch
+          - '🚀 major (main branch)' # For breaking changes (e.g., 1.0.0) - uses 'main' branch
 
 jobs:
   # Prepare all the packages for update by creating a PR with version bumps and changelog updates
   prepare:
     runs-on: ${{ github.event.repository.private && 'self-hosted' || 'ubuntu-latest' }}
     permissions:
+      actions: write # Needed to dispatch and monitor docs-update workflow runs
+      checks: read # Needed when querying workflow/check run state
       contents: write # Needed for creating/updating branches for version bumps
       pull-requests: write # Needed for creating the release PR
       id-token: write # Keep existing permissions for authentication
 
-    # Enforce branching strategy rules:
-    # 1. Prereleases (next.X) can only be created from the 'next' branch
-    # 2. Production releases can only be created from the 'main' branch
-    if: (github.ref == 'refs/heads/main' && github.event.inputs.semverType != 'prerelease') || (github.ref == 'refs/heads/next' && github.event.inputs.semverType == 'prerelease')
-
     steps:
+      # Set branch variable based on release type
+      - name: Set target branch
+        id: set-branch
+        run: |
+          INPUT="${{ github.event.inputs.releaseType }}"
+
+          if [[ "$INPUT" == *"patch"* ]]; then
+            BRANCH="main"
+            SEMVER_TYPE="patch"
+          elif [[ "$INPUT" == *"minor"* ]]; then
+            BRANCH="main"
+            SEMVER_TYPE="minor"
+          elif [[ "$INPUT" == *"major"* ]]; then
+            BRANCH="main"
+            SEMVER_TYPE="major"
+          elif [[ "$INPUT" == *"prerelease"* ]]; then
+            BRANCH="next"
+            SEMVER_TYPE="prerelease"
+          else
+            echo "Error: Unrecognized release type: $INPUT"
+            exit 1
+          fi
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "semver_type=$SEMVER_TYPE" >> $GITHUB_OUTPUT
+          echo "Using branch: $BRANCH"
+          echo "Using semver type: $SEMVER_TYPE"
+
+      # Ensure docs are refreshed on the target branch before release preparation starts.
+      - name: Run docs update workflow
+        run: |
+          TARGET_BRANCH="${{ steps.set-branch.outputs.branch }}"
+          REPO="${{ github.repository }}"
+          START_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          gh workflow run docs-update.yaml \
+            --repo "$REPO" \
+            --ref "$TARGET_BRANCH" \
+            -f dryRun=false
+
+          RUN_ID=""
+          for i in {1..180}; do
+            if [ -z "$RUN_ID" ]; then
+              RUN_ID=$(gh run list \
+                --repo "$REPO" \
+                --workflow "Docs Update" \
+                --branch "$TARGET_BRANCH" \
+                --event workflow_dispatch \
+                --json databaseId,createdAt \
+                --jq "map(select(.createdAt >= \"$START_TIME\")) | sort_by(.createdAt) | reverse | .[0].databaseId")
+
+              if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+                echo "Docs Update run not visible yet (attempt $i/180), retrying in 10s..."
+                sleep 10
+                continue
+              fi
+
+              echo "Docs Update run found: $RUN_ID"
+            fi
+
+            RUN_STATUS=$(gh run view "$RUN_ID" --repo "$REPO" --json status --jq '.status')
+            RUN_CONCLUSION=$(gh run view "$RUN_ID" --repo "$REPO" --json conclusion --jq '.conclusion')
+
+            if [ "$RUN_STATUS" = "completed" ]; then
+              echo "Docs Update completed with conclusion: $RUN_CONCLUSION"
+              if [ "$RUN_CONCLUSION" = "success" ]; then
+                exit 0
+              fi
+              exit 1
+            fi
+
+            echo "Docs Update status=$RUN_STATUS (attempt $i/180), retrying in 10s..."
+            sleep 10
+          done
+
+          echo "Timed out waiting for Docs Update to be discovered and complete."
+          exit 1
+        env:
+          GH_TOKEN: ${{ github.token }}
+
       # Clone the repository to the runner
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GHA_RELEASE_TOKEN }} # Use elevated token that can bypass branch protection
-          fetch-depth: 0 # Fetch full history for proper commit operations
+          token: ${{ secrets.GHA_RELEASE_TOKEN }} # Use admin PAT instead of GITHUB_TOKEN
+          ref: ${{ steps.set-branch.outputs.branch }} # Checkout the calculated branch
+          fetch-depth: 0 # Fetch all history for accurate versioning
 
       # Set up Node.js environment for running npm commands
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '20' # Use Node.js 20.x
+          node-version: 24
 
-      # Install dependencies as specified in package-lock.json
-      - name: NPM Install
-        run: npm ci # Using 'ci' for clean, reproducible installs
+      # Install dependencies with retry
+      - name: Install dependencies
+        run: |
+          for i in {1..3}; do
+            npm ci && break || {
+              if [ $i -eq 3 ]; then
+                echo "npm ci failed after 3 attempts"
+                exit 1
+              fi
+              echo "npm ci failed, retrying in 30 seconds (attempt $i/3)..."
+              sleep 30
+            }
+          done
 
       # Apply custom patches to release-please to modify its behavior
       # This customizes how prerelease versioning works to always increment the prerelease number
@@ -58,26 +145,45 @@ jobs:
       - name: Patch release-please prerelease versioning strategy
         run: npx patch-package --patch-dir release
 
+      # Import GPG key for signing commits
+      - name: Import GPG key
+        run: |
+          # Import the GPG private key from secrets, which should be base64 encoded
+          echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --import
+          echo "GPG_KEY_ID=$GPG_KEY_ID" >> $GITHUB_ENV
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }} # Base64 encoded private key
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }} # GPG key ID
+
+      # Set git config once for all subsequent steps
+      - name: Configure Git
+        run: |
+          git config --global user.email "github@twindev.org"
+          git config --global user.name "TWIN GitHub Bot"
+          git config --global user.signingkey "$GPG_KEY_ID"
+          git config --global commit.gpgsign true
+          git config --global tag.gpgsign true
+
       # Release please will not see any changes if next has been merged into main
       # This step ensures that release-please runs even if there are no conventional commits
       - name: Force release by adding commit
-        uses: qoomon/actions--create-commit@v1
-        if: github.ref == 'refs/heads/main'
-        with:
-          message: 'feat: release to production'
-          allow-empty: true
-
-      # Update the release-please configuration files based on the selected semver type
-      - name: Update release-please prod config
-        if: github.ref == 'refs/heads/main' # Only run this step if we are creating a production release
+        if: steps.set-branch.outputs.branch == 'main'
         run: |
-          # Update the versioning strategy based on the selected semver type
+          git commit -S --allow-empty -m "feat: release to production"
+          git push origin main
+
+      # Update the release-please configuration files based on the selected release type
+      - name: Update release-please prod config
+        if: steps.set-branch.outputs.branch == 'main' # Only run this step if we are creating a production release
+        run: |
+          # Update the versioning strategy based on the selected release type
           node -e "
             const fs = require('fs');
             const config = JSON.parse(fs.readFileSync('release/release-please-config.prod.json', 'utf8'));
-            config['versioning'] = 'always-bump-${{ github.event.inputs.semverType }}';
+            config['versioning'] = 'always-bump-${{ steps.set-branch.outputs.semver_type }}';
             fs.writeFileSync('release/release-please-config.prod.json', JSON.stringify(config, null, 2));
           "
+
       # Run release-please to:
       # 1. Analyze commits since last release
       # 2. Determine appropriate version bumps
@@ -89,11 +195,16 @@ jobs:
         id: release-please # ID allows referencing this step later
         run: |
           # Select configuration files based on release type (prerelease vs production)
-          CONFIG_FILE=release/release-please-config.${{ github.event.inputs.semverType == 'prerelease' && 'prerelease' || 'prod' }}.json
-          MANIFEST_FILE=release/release-please-manifest.${{ github.event.inputs.semverType == 'prerelease' && 'prerelease' || 'prod' }}.json
+          CONFIG_FILE=release/release-please-config.${{ steps.set-branch.outputs.branch == 'next' && 'prerelease' || 'prod' }}.json
+          MANIFEST_FILE=release/release-please-manifest.${{ steps.set-branch.outputs.branch == 'next' && 'prerelease' || 'prod' }}.json
 
           # Execute release-please and capture its output
-          OUTPUT=$(node_modules/.bin/release-please release-pr --config-file=${CONFIG_FILE} --manifest-file=${MANIFEST_FILE} --repo-url=${{ github.repository }} --target-branch=${{ github.ref_name }} --token=${{ secrets.GITHUB_TOKEN }})
+          OUTPUT=$(node_modules/.bin/release-please release-pr \
+            --config-file=${CONFIG_FILE} \
+            --manifest-file=${MANIFEST_FILE} \
+            --repo-url=${{ github.repository }} \
+            --target-branch=${{ steps.set-branch.outputs.branch }} \
+            --token=${{ secrets.GITHUB_TOKEN }})
 
           echo "Release-please output: $OUTPUT"
 
