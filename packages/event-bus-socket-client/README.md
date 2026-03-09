@@ -1,6 +1,6 @@
 # TWIN Event Bus Socket Client
 
-Event bus component implementation which can connect to socket endpoints
+Provides a client component for connecting to event-bus socket endpoints and handling event subscriptions.
 
 ## Installation
 

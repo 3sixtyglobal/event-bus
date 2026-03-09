@@ -1,6 +1,6 @@
 # TWIN Event Bus Connector Entity Storage
 
-Event bus connector implementation using entity storage.
+Provides an in-memory local connector that routes events between components without network transport.
 
 ## Installation
 

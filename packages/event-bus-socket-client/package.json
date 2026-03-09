@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/event-bus-socket-client",
 	"version": "0.0.3-next.1",
-	"description": "Event bus component implementation which can connect to socket endpoints",
+	"description": "Provides a client component for connecting to event-bus socket endpoints and handling event subscriptions.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/event-bus.git",

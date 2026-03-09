@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/event-bus-connector-local",
 	"version": "0.0.3-next.1",
-	"description": "Event bus connector implementation local communication",
+	"description": "Provides an in-memory local connector that routes events between components without network transport.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/event-bus.git",

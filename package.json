@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/event-bus",
 	"version": "0.0.0",
-	"description": "Event Bus",
+	"description": "Event bus components, connectors, and services for routing events across applications.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/event-bus.git"

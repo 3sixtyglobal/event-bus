@@ -1,6 +1,6 @@
 # TWIN Event Bus Service
 
-Event bus service implementation using web sockets.
+Exposes server routes and socket entry points to publish and subscribe to event streams over WebSocket connections.
 
 ## Installation
 

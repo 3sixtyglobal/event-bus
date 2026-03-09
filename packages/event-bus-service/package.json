@@ -1,7 +1,7 @@
 {
 	"name": "@twin.org/event-bus-service",
 	"version": "0.0.3-next.1",
-	"description": "Event bus service implementation using web sockets",
+	"description": "Exposes server routes and socket entry points to publish and subscribe to event streams over WebSocket connections.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/twinfoundation/event-bus.git",
