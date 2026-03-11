@@ -1,4 +1,4 @@
-# @twin.org/event-bus-service - Changelog
+# Changelog
 
 ## [0.0.3-next.1](https://github.com/twinfoundation/event-bus/compare/event-bus-service-v0.0.3-next.0...event-bus-service-v0.0.3-next.1) (2025-11-10)
 
