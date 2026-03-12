@@ -4,7 +4,7 @@ Publish an event on the bus.
 
 ## Properties
 
-### body
+### body {#body}
 
 > **body**: [`IEvent`](IEvent.md)
 

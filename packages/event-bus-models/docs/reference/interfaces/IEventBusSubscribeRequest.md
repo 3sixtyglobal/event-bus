@@ -4,7 +4,7 @@ Subscribe to an event bus topic.
 
 ## Properties
 
-### body
+### body {#body}
 
 > **body**: `object`
 

@@ -28,7 +28,7 @@ The options for the connector.
 
 ## Properties
 
-### CLASS\_NAME
+### CLASS\_NAME {#class_name}
 
 > `readonly` `static` **CLASS\_NAME**: `string`
 
@@ -36,7 +36,7 @@ Runtime name for the class.
 
 ## Methods
 
-### className()
+### className() {#classname}
 
 > **className**(): `string`
 
@@ -54,7 +54,7 @@ The class name of the component.
 
 ***
 
-### subscribe()
+### subscribe() {#subscribe}
 
 > **subscribe**\<`T`\>(`topic`, `callback`): `Promise`\<`string`\>
 
@@ -92,7 +92,7 @@ The id of the subscription, to be used in unsubscribe.
 
 ***
 
-### unsubscribe()
+### unsubscribe() {#unsubscribe}
 
 > **unsubscribe**(`subscriptionId`): `Promise`\<`void`\>
 
@@ -118,7 +118,7 @@ Nothing.
 
 ***
 
-### publish()
+### publish() {#publish}
 
 > **publish**\<`T`\>(`topic`, `data`): `Promise`\<`void`\>
 

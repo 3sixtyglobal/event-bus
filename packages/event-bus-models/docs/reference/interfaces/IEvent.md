@@ -10,7 +10,7 @@ Event record.
 
 ## Properties
 
-### id
+### id {#id}
 
 > **id**: `string`
 
@@ -18,7 +18,7 @@ The id for the event.
 
 ***
 
-### ts
+### ts {#ts}
 
 > **ts**: `number`
 
@@ -26,7 +26,7 @@ The timestamp for the event.
 
 ***
 
-### topic
+### topic {#topic}
 
 > **topic**: `string`
 
@@ -34,7 +34,7 @@ The topic for the event.
 
 ***
 
-### data
+### data {#data}
 
 > **data**: `T`
 

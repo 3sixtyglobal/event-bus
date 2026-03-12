@@ -8,7 +8,7 @@ Interface describing a event bus connector.
 
 ## Methods
 
-### subscribe()
+### subscribe() {#subscribe}
 
 > **subscribe**\<`T`\>(`topic`, `callback`): `Promise`\<`string`\>
 
@@ -42,7 +42,7 @@ The id of the subscription, to be used in unsubscribe.
 
 ***
 
-### unsubscribe()
+### unsubscribe() {#unsubscribe}
 
 > **unsubscribe**(`subscriptionId`): `Promise`\<`void`\>
 
@@ -64,7 +64,7 @@ Nothing.
 
 ***
 
-### publish()
+### publish() {#publish}
 
 > **publish**\<`T`\>(`topic`, `data`): `Promise`\<`void`\>
 
