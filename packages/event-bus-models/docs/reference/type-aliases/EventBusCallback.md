@@ -1,4 +1,4 @@
-# Type Alias: EventBusCallback()\<T\>
+# Type Alias: EventBusCallback\<T\>
 
 > **EventBusCallback**\<`T`\> = (`event`) => `Promise`\<`void`\>
 

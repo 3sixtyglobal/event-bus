@@ -6,6 +6,12 @@ The options for the local event bus connector.
 
 ### loggingComponentType? {#loggingcomponenttype}
 
-> `optional` **loggingComponentType**: `string`
+> `optional` **loggingComponentType?**: `string`
 
 The logging component type.
+
+#### Default
+
+```ts
+logging
+```

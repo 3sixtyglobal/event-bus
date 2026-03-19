@@ -6,6 +6,12 @@ The options for the event bus service.
 
 ### eventBusConnectorType? {#eventbusconnectortype}
 
-> `optional` **eventBusConnectorType**: `string`
+> `optional` **eventBusConnectorType?**: `string`
 
 The event bus connector type.
+
+#### Default
+
+```ts
+event-bus
+```
