@@ -4,7 +4,7 @@
 	"description": "Event bus components, connectors, and services for routing events across applications.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/twinfoundation/event-bus.git"
+		"url": "git+https://github.com/iotaledger/event-bus.git"
 	},
 	"author": "martyn.janes@iota.org",
 	"license": "Apache-2.0",
@@ -61,7 +61,7 @@
 	],
 	"type": "module",
 	"bugs": {
-		"url": "git+https://github.com/twinfoundation/event-bus/issues"
+		"url": "git+https://github.com/iotaledger/event-bus/issues"
 	},
 	"homepage": "https://twindev.org"
 }
