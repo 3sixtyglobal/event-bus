@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.0.3-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.0.3-next.1...event-bus-connector-local-v0.0.3-next.2) (2026-05-11)
+
+
+### Features
+
+* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+
+
+### Bug Fixes
+
+* extraneous type ([c49bdf7](https://github.com/iotaledger/twin-event-bus/commit/c49bdf7cfbe51adf970ad7b33892dac0b90eab0d))
+* missing dependency ([46ee766](https://github.com/iotaledger/twin-event-bus/commit/46ee766551cd89c43fbe0ae60277111e03c7dd74))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.1 to 0.0.3-next.2
+
 ## [0.0.3-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.0.3-next.0...event-bus-connector-local-v0.0.3-next.1) (2025-11-10)
 
 

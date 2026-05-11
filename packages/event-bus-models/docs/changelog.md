@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.1...event-bus-models-v0.0.3-next.2) (2026-05-11)
+
+
+### Features
+
+* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+
 ## [0.0.3-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.0...event-bus-models-v0.0.3-next.1) (2025-11-10)
 
 
