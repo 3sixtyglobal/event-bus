@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.3-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.3-next.2...event-bus-service-v0.0.3-next.3) (2026-05-20)
+
+
+### Features
+
+* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.2 to 0.0.3-next.3
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.3-next.2 to 0.0.3-next.3
+
 ## [0.0.3-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.3-next.1...event-bus-service-v0.0.3-next.2) (2026-05-11)
 
 
