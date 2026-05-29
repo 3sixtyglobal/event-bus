@@ -4,7 +4,7 @@
 	"description": "Exposes server routes and socket entry points to publish and subscribe to event streams over WebSocket connections.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/iotaledger/event-bus.git",
+		"url": "git+https://github.com/iotaledger/twin-event-bus.git",
 		"directory": "packages/event-bus-service"
 	},
 	"author": "martyn.janes@iota.org",
@@ -81,7 +81,7 @@
 		"business-logic"
 	],
 	"bugs": {
-		"url": "git+https://github.com/iotaledger/event-bus/issues"
+		"url": "git+https://github.com/iotaledger/twin-event-bus/issues"
 	},
 	"homepage": "https://twindev.org"
 }
