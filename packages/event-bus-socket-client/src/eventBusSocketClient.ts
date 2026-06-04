@@ -207,7 +207,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 	/**
 	 * Handle an incoming subscribe event.
-	 * @param publishEmit The incoming data.
+	 * @param subscribeResponse The incoming data.
 	 * @internal
 	 */
 	private async subscribeResponse(subscribeResponse: IEventBusSubscribeResponse): Promise<void> {
@@ -219,7 +219,6 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 	/**
 	 * Handle an incoming publish event.
-	 * @param topic The incoming topic.
 	 * @param event The incoming data.
 	 * @internal
 	 */
