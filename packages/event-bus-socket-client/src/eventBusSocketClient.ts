@@ -60,7 +60,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 		this._subscriptions = {};
 
-		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType ?? "logging");
+		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType);
 
 		super.onEvent<IEventBusSubscribeResponse>("subscribe", async data =>
 			this.subscribeResponse(data)

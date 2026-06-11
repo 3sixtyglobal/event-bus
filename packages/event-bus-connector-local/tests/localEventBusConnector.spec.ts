@@ -27,6 +27,23 @@ const FIRST_TIMESTAMP = 1724327000000;
 
 let memoryEntityStorage: MemoryEntityStorageConnector<LogEntry>;
 
+function expectHexString(value: string | undefined, length: number): void {
+	expect(value).toMatch(new RegExp(`^[0-9a-f]{${length}}$`, "u"));
+}
+
+function expectLogEntry(
+	log: LogEntry | undefined,
+	expected: Pick<LogEntry, "level" | "source" | "message"> & {
+		data?: Record<string, unknown>;
+		error?: unknown;
+	}
+): void {
+	expect(log).toBeDefined();
+	expectHexString(log?.id, 64);
+	expect(log?.ts).toBeGreaterThanOrEqual(FIRST_TIMESTAMP);
+	expect(log).toMatchObject(expected);
+}
+
 describe("LocalEventBusConnector", () => {
 	beforeAll(async () => {
 		initSchema();
@@ -38,7 +55,16 @@ describe("LocalEventBusConnector", () => {
 		});
 
 		EntityStorageConnectorFactory.register("log-entry", () => memoryEntityStorage);
-		LoggingConnectorFactory.register("logging", () => new EntityStorageLoggingConnector());
+		LoggingConnectorFactory.register(
+			"logging",
+			() =>
+				new EntityStorageLoggingConnector({
+					config: {
+						batchSize: 1,
+						batchIntervalMs: 0
+					}
+				})
+		);
 		ComponentFactory.register("logging", () => new LoggingService());
 
 		let timeCounter: number = 0;
@@ -58,7 +84,7 @@ describe("LocalEventBusConnector", () => {
 	});
 
 	test("can subscribe to a topic and get a subscription id", async () => {
-		const localEventBusConnector = new LocalEventBusConnector();
+		const localEventBusConnector = new LocalEventBusConnector({ loggingComponentType: "logging" });
 
 		let counter = 0;
 		let receivedTopic = "";
@@ -76,35 +102,31 @@ describe("LocalEventBusConnector", () => {
 		expect(receivedTopic).toEqual("test");
 
 		const logs = memoryEntityStorage.getStore();
-		expect(logs).toEqual([
-			{
-				id: "0202020202020202020202020202020202020202020202020202020202020202",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000000,
-				message: "subscribe",
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
-			},
-			{
-				id: "0404040404040404040404040404040404040404040404040404040404040404",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000002,
-				message: "publish",
-				data: {
-					topic: "test",
-					eventId: "03030303030303030303030303030303",
-					subscriptionCount: 1
-				}
+		expect(logs).toHaveLength(2);
+		expectLogEntry(logs[0], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "subscribe",
+			data: {
+				topic: "test",
+				subscriptionId
 			}
-		]);
+		});
+		expectLogEntry(logs[1], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "publish",
+			data: {
+				topic: "test",
+				subscriptionCount: 1
+			}
+		});
+		expectHexString((logs[1].data as { eventId?: string }).eventId, 32);
+		expect(logs[0].ts).toBeLessThan(logs[1].ts);
 	});
 
 	test("can unsubscribe from a topic", async () => {
-		const localEventBusConnector = new LocalEventBusConnector();
+		const localEventBusConnector = new LocalEventBusConnector({ loggingComponentType: "logging" });
 
 		let counter = 0;
 		let receivedTopic = "";
@@ -123,46 +145,41 @@ describe("LocalEventBusConnector", () => {
 		expect(receivedTopic).toEqual("");
 
 		const logs = memoryEntityStorage.getStore();
-		expect(logs).toEqual([
-			{
-				id: "0202020202020202020202020202020202020202020202020202020202020202",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000000,
-				message: "subscribe",
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
-			},
-			{
-				id: "0303030303030303030303030303030303030303030303030303030303030303",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000001,
-				message: "unsubscribe",
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
-			},
-			{
-				id: "0505050505050505050505050505050505050505050505050505050505050505",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000003,
-				message: "publish",
-				data: {
-					topic: "test",
-					eventId: "04040404040404040404040404040404",
-					subscriptionCount: 0
-				}
+		expect(logs).toHaveLength(3);
+		expectLogEntry(logs[0], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "subscribe",
+			data: {
+				topic: "test",
+				subscriptionId
 			}
-		]);
+		});
+		expectLogEntry(logs[1], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "unsubscribe",
+			data: {
+				topic: "test",
+				subscriptionId
+			}
+		});
+		expectLogEntry(logs[2], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "publish",
+			data: {
+				topic: "test",
+				subscriptionCount: 0
+			}
+		});
+		expectHexString((logs[2].data as { eventId?: string }).eventId, 32);
+		expect(logs[0].ts).toBeLessThan(logs[1].ts);
+		expect(logs[1].ts).toBeLessThan(logs[2].ts);
 	});
 
 	test("can publish with no subscribers", async () => {
-		const localEventBusConnector = new LocalEventBusConnector();
+		const localEventBusConnector = new LocalEventBusConnector({ loggingComponentType: "logging" });
 
 		let counter = 0;
 		let receivedTopic = "";
@@ -181,97 +198,90 @@ describe("LocalEventBusConnector", () => {
 		expect(receivedTopic).toEqual("");
 
 		const logs = memoryEntityStorage.getStore();
-		expect(logs).toEqual([
-			{
-				id: "0202020202020202020202020202020202020202020202020202020202020202",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000000,
-				message: "subscribe",
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
-			},
-			{
-				id: "0303030303030303030303030303030303030303030303030303030303030303",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000001,
-				message: "unsubscribe",
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
-			},
-			{
-				id: "0505050505050505050505050505050505050505050505050505050505050505",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000003,
-				message: "publish",
-				data: {
-					topic: "test",
-					eventId: "04040404040404040404040404040404",
-					subscriptionCount: 0
-				}
+		expect(logs).toHaveLength(3);
+		expectLogEntry(logs[0], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "subscribe",
+			data: {
+				topic: "test",
+				subscriptionId
 			}
-		]);
+		});
+		expectLogEntry(logs[1], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "unsubscribe",
+			data: {
+				topic: "test",
+				subscriptionId
+			}
+		});
+		expectLogEntry(logs[2], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "publish",
+			data: {
+				topic: "test",
+				subscriptionCount: 0
+			}
+		});
+		expectHexString((logs[2].data as { eventId?: string }).eventId, 32);
+		expect(logs[0].ts).toBeLessThan(logs[1].ts);
+		expect(logs[1].ts).toBeLessThan(logs[2].ts);
 	});
 
 	test("can log error if fail during callback", async () => {
-		const localEventBusConnector = new LocalEventBusConnector();
+		const localEventBusConnector = new LocalEventBusConnector({ loggingComponentType: "logging" });
 
-		await localEventBusConnector.subscribe<TestPayload>("test", async event => {
-			throw new GeneralError("test", "test");
-		});
+		const subscriptionId = await localEventBusConnector.subscribe<TestPayload>(
+			"test",
+			async event => {
+				throw new GeneralError("test", "test");
+			}
+		);
 		await localEventBusConnector.publish<TestPayload>("test", { counter: 5 });
 
 		const logs = memoryEntityStorage.getStore();
 		delete logs[2]?.error?.[0]?.stack;
 
-		expect(logs).toEqual([
-			{
-				id: "0202020202020202020202020202020202020202020202020202020202020202",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000000,
-				message: "subscribe",
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
-			},
-			{
-				id: "0404040404040404040404040404040404040404040404040404040404040404",
-				level: "info",
-				source: "LocalEventBusConnector",
-				ts: 1724327000002,
-				message: "publish",
-				data: {
-					topic: "test",
-					eventId: "03030303030303030303030303030303",
-					subscriptionCount: 1
-				}
-			},
-			{
-				id: "0505050505050505050505050505050505050505050505050505050505050505",
-				level: "error",
-				source: "LocalEventBusConnector",
-				ts: 1724327000003,
-				message: "callback",
-				error: [
-					{
-						name: "GeneralError",
-						source: "test",
-						message: "test.test"
-					}
-				],
-				data: {
-					topic: "test",
-					subscriptionId: "01010101010101010101010101010101"
-				}
+		expect(logs).toHaveLength(3);
+		expectLogEntry(logs[0], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "subscribe",
+			data: {
+				topic: "test",
+				subscriptionId
 			}
-		]);
+		});
+		expectLogEntry(logs[1], {
+			level: "info",
+			source: "LocalEventBusConnector",
+			message: "publish",
+			data: {
+				topic: "test",
+				subscriptionCount: 1
+			}
+		});
+		expectHexString((logs[1].data as { eventId?: string }).eventId, 32);
+		expectLogEntry(logs[2], {
+			level: "error",
+			source: "LocalEventBusConnector",
+			message: "callback",
+			error: [
+				{
+					name: "GeneralError",
+					source: "test",
+					message: "test.test"
+				}
+			],
+			data: {
+				topic: "test",
+				subscriptionId
+			}
+		});
+		expect(logs[0].ts).toBeLessThan(logs[1].ts);
+		expect(logs[1].ts).toBeLessThan(logs[2].ts);
 	});
 });

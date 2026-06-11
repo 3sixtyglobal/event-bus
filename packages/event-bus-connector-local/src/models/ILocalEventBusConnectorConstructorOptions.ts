@@ -7,7 +7,6 @@
 export interface ILocalEventBusConnectorConstructorOptions {
 	/**
 	 * The logging component type.
-	 * @default logging
 	 */
 	loggingComponentType?: string;
 }

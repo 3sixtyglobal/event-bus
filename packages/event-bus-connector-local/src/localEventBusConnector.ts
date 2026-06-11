@@ -42,7 +42,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @param options The options for the connector.
 	 */
 	constructor(options?: ILocalEventBusConnectorConstructorOptions) {
-		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType ?? "logging");
+		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType);
 		this._subscriptions = {};
 	}
 
