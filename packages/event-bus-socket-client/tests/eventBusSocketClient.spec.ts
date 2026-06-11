@@ -35,6 +35,11 @@ describe("EventBusSocketClient", () => {
 			entitySchema: nameof<LogEntry>()
 		});
 		EntityStorageConnectorFactory.register("log-entry", () => entityStorageConnectorMemory);
+		ComponentFactory.register("platform", () => ({
+			className: () => "platform",
+			isMultiTenant: () => false,
+			execute: async (method: () => Promise<void>) => method()
+		}));
 
 		const loggingConnectorEntityStorage = new EntityStorageLoggingConnector({
 			logEntryStorageConnectorType: "log-entry"

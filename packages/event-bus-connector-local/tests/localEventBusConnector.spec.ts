@@ -34,7 +34,7 @@ function expectHexString(value: string | undefined, length: number): void {
 function expectLogEntry(
 	log: LogEntry | undefined,
 	expected: Pick<LogEntry, "level" | "source" | "message"> & {
-		data?: Record<string, unknown>;
+		data?: { [key: string]: unknown };
 		error?: unknown;
 	}
 ): void {
@@ -55,6 +55,11 @@ describe("LocalEventBusConnector", () => {
 		});
 
 		EntityStorageConnectorFactory.register("log-entry", () => memoryEntityStorage);
+		ComponentFactory.register("platform", () => ({
+			className: () => "platform",
+			isMultiTenant: () => false,
+			execute: async (method: () => Promise<void>) => method()
+		}));
 		LoggingConnectorFactory.register(
 			"logging",
 			() =>
