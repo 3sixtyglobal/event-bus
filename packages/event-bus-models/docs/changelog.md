@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.3...event-bus-models-v0.0.3-next.4) (2026-06-11)
+
+
+### Miscellaneous Chores
+
+* **event-bus-models:** Synchronize repo versions
+
 ## [0.0.3-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.2...event-bus-models-v0.0.3-next.3) (2026-05-20)
 
 

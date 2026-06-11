@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/event-bus-service",
-	"version": "0.0.3-next.3",
+	"version": "0.0.3-next.4",
 	"description": "Exposes server routes and socket entry points to publish and subscribe to event streams over WebSocket connections.",
 	"repository": {
 		"type": "git",
@@ -28,7 +28,7 @@
 		"dist:no-test": "npm run clean && npm run build && npm run test:build"
 	},
 	"dependencies": {
-		"@twin.org/event-bus-models": "0.0.3-next.3",
+		"@twin.org/event-bus-models": "0.0.3-next.4",
 		"@twin.org/api-models": "next",
 		"@twin.org/core": "next",
 		"@twin.org/nameof": "next",
@@ -38,7 +38,7 @@
 		"@twin.org/api-processors": "next",
 		"@twin.org/api-server-fastify": "next",
 		"@twin.org/entity-storage-connector-memory": "next",
-		"@twin.org/event-bus-connector-local": "0.0.3-next.3",
+		"@twin.org/event-bus-connector-local": "0.0.3-next.4",
 		"@twin.org/logging-connector-entity-storage": "next",
 		"@twin.org/nameof-transformer": "next",
 		"@twin.org/nameof-vitest-plugin": "next",

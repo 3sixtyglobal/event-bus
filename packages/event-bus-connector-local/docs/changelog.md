@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.3-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.0.3-next.3...event-bus-connector-local-v0.0.3-next.4) (2026-06-11)
+
+
+### Features
+
+* remove default logging ([6c824b5](https://github.com/iotaledger/twin-event-bus/commit/6c824b59a38a34427bdd5a7976f42d6faf29ab32))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.3 to 0.0.3-next.4
+
 ## [0.0.3-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.0.3-next.2...event-bus-connector-local-v0.0.3-next.3) (2026-05-20)
 
 

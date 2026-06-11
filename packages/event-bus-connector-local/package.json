@@ -1,6 +1,6 @@
 {
 	"name": "@twin.org/event-bus-connector-local",
-	"version": "0.0.3-next.3",
+	"version": "0.0.3-next.4",
 	"description": "Provides an in-memory local connector that routes events between components without network transport.",
 	"repository": {
 		"type": "git",
@@ -28,7 +28,7 @@
 		"dist:no-test": "npm run clean && npm run build && npm run test:build"
 	},
 	"dependencies": {
-		"@twin.org/event-bus-models": "0.0.3-next.3",
+		"@twin.org/event-bus-models": "0.0.3-next.4",
 		"@twin.org/core": "next",
 		"@twin.org/nameof": "next",
 		"@twin.org/logging-models": "next"
