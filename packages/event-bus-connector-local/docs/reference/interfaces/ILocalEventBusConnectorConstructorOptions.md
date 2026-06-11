@@ -9,9 +9,3 @@ The options for the local event bus connector.
 > `optional` **loggingComponentType?**: `string`
 
 The logging component type.
-
-#### Default
-
-```ts
-logging
-```
