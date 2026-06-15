@@ -83,6 +83,10 @@ describe("LocalEventBusConnector", () => {
 			.mockImplementation(length => new Uint8Array(length).fill(counter++));
 	});
 
+	afterEach(() => {
+		memoryEntityStorage.teardown();
+	});
+
 	test("can construct with dependencies", async () => {
 		const localEventBusConnector = new LocalEventBusConnector();
 		expect(localEventBusConnector).toBeDefined();
@@ -106,7 +110,7 @@ describe("LocalEventBusConnector", () => {
 		expect(counter).toEqual(5);
 		expect(receivedTopic).toEqual("test");
 
-		const logs = memoryEntityStorage.getStore();
+		const logs = await memoryEntityStorage.getStore();
 		expect(logs).toHaveLength(2);
 		expectLogEntry(logs[0], {
 			level: "info",
@@ -149,7 +153,7 @@ describe("LocalEventBusConnector", () => {
 		expect(counter).toEqual(0);
 		expect(receivedTopic).toEqual("");
 
-		const logs = memoryEntityStorage.getStore();
+		const logs = await memoryEntityStorage.getStore();
 		expect(logs).toHaveLength(3);
 		expectLogEntry(logs[0], {
 			level: "info",
@@ -202,7 +206,7 @@ describe("LocalEventBusConnector", () => {
 		expect(counter).toEqual(0);
 		expect(receivedTopic).toEqual("");
 
-		const logs = memoryEntityStorage.getStore();
+		const logs = await memoryEntityStorage.getStore();
 		expect(logs).toHaveLength(3);
 		expectLogEntry(logs[0], {
 			level: "info",
@@ -247,7 +251,7 @@ describe("LocalEventBusConnector", () => {
 		);
 		await localEventBusConnector.publish<TestPayload>("test", { counter: 5 });
 
-		const logs = memoryEntityStorage.getStore();
+		const logs = await memoryEntityStorage.getStore();
 		delete logs[2]?.error?.[0]?.stack;
 
 		expect(logs).toHaveLength(3);
