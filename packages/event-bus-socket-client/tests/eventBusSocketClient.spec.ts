@@ -32,7 +32,8 @@ describe("EventBusSocketClient", () => {
 		port++;
 		initSchema();
 		const entityStorageConnectorMemory = new MemoryEntityStorageConnector({
-			entitySchema: nameof<LogEntry>()
+			entitySchema: nameof<LogEntry>(),
+			config: { storageKey: "log-entry" }
 		});
 		EntityStorageConnectorFactory.register("log-entry", () => entityStorageConnectorMemory);
 		ComponentFactory.register("platform", () => ({
