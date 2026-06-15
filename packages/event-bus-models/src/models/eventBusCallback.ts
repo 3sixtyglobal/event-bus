@@ -3,6 +3,6 @@
 import type { IEvent } from "./IEvent.js";
 
 /**
- * Interface describing a event bus callback method.
+ * Callback invoked when an event is received on a subscribed topic.
  */
 export type EventBusCallback<T> = (event: IEvent<T>) => Promise<void>;

@@ -86,7 +86,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	/**
 	 * Unsubscribe from the event bus.
 	 * @param subscriptionId The subscription to unsubscribe.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the subscription has been removed.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
 		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(subscriptionId), subscriptionId);
@@ -120,7 +120,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * Publish an event to the bus.
 	 * @param topic The topic to publish.
 	 * @param data The data to publish.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the event has been dispatched to all subscribers.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
 		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(topic), topic);

@@ -67,7 +67,7 @@ export function generateSocketRoutesEventBus(
  * @param componentName The name of the component to use in the routes.
  * @param request The request.
  * @param emitter The emitter to send message back.
- * @returns The response object with additional http response properties.
+ * @returns A promise that resolves when the subscribe response has been emitted to the caller.
  */
 export async function eventBusSubscribe(
 	socketRequestContext: ISocketRequestContext,
@@ -99,7 +99,7 @@ export async function eventBusSubscribe(
  * @param componentName The name of the component to use in the routes.
  * @param request The request.
  * @param emitter The emitter to send message back.
- * @returns The response object with additional http response properties.
+ * @returns A promise that resolves when the unsubscribe has been processed.
  */
 export async function eventBusUnsubscribe(
 	socketRequestContext: ISocketRequestContext,

@@ -118,7 +118,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Unsubscribe from the event bus.
 	 * @param subscriptionId The subscription to unsubscribe.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the subscription has been removed.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
 		Guards.stringValue(EventBusSocketClient.CLASS_NAME, nameof(subscriptionId), subscriptionId);
@@ -167,7 +167,8 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * Publish an event to the bus.
 	 * @param topic The topic to publish.
 	 * @param data The data to publish.
-	 * @returns Nothing.
+	 * @returns A promise that always rejects because publishing is not supported on the client.
+	 * @throws NotSupportedError Always, as publishing is not supported on the client side.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
 		throw new NotSupportedError(EventBusSocketClient.CLASS_NAME, "notSupportedOnClient", {
@@ -177,6 +178,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 	/**
 	 * Handle the socket connection.
+	 * @returns A promise that resolves when all pending subscribe requests have been re-sent.
 	 */
 	protected async handleConnected(): Promise<void> {
 		// The socket has reconnected so send subscribe requests
@@ -194,6 +196,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Handle an error.
 	 * @param err The error to handle.
+	 * @returns A promise that resolves when the error has been logged.
 	 */
 	protected async handleError(err: IError): Promise<void> {
 		await this._logging?.log({
@@ -208,6 +211,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Handle an incoming subscribe event.
 	 * @param subscribeResponse The incoming data.
+	 * @returns A promise that resolves when the subscription id has been recorded.
 	 * @internal
 	 */
 	private async subscribeResponse(subscribeResponse: IEventBusSubscribeResponse): Promise<void> {
@@ -220,6 +224,7 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Handle an incoming publish event.
 	 * @param event The incoming data.
+	 * @returns A promise that resolves when all subscriber callbacks have been invoked.
 	 * @internal
 	 */
 	private async incomingPublish(event: IHttpResponse<IEvent>): Promise<void> {

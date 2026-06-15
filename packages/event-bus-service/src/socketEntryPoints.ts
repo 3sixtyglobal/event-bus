@@ -3,6 +3,9 @@
 import type { ISocketRouteEntryPoint } from "@twin.org/api-models";
 import { generateSocketRoutesEventBus, tagsEventBus } from "./eventBusRoutes.js";
 
+/**
+ * Socket route entry points for the event bus service.
+ */
 export const socketEntryPoints: ISocketRouteEntryPoint[] = [
 	{
 		name: "event-bus",
