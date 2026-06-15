@@ -83,8 +83,8 @@ describe("LocalEventBusConnector", () => {
 			.mockImplementation(length => new Uint8Array(length).fill(counter++));
 	});
 
-	afterEach(() => {
-		memoryEntityStorage.teardown();
+	afterEach(async () => {
+		await memoryEntityStorage.teardown();
 	});
 
 	test("can construct with dependencies", async () => {
