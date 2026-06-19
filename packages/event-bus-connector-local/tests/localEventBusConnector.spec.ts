@@ -59,7 +59,8 @@ describe("LocalEventBusConnector", () => {
 		ComponentFactory.register("platform", () => ({
 			className: () => "platform",
 			isMultiTenant: () => false,
-			execute: async (method: () => Promise<void>) => method()
+			execute: async (method: () => Promise<void>) => method(),
+			getLocalOriginContext: async () => undefined
 		}));
 		LoggingConnectorFactory.register(
 			"logging",

@@ -39,7 +39,8 @@ describe("EventBusSocketClient", () => {
 		ComponentFactory.register("platform", () => ({
 			className: () => "platform",
 			isMultiTenant: () => false,
-			execute: async (method: () => Promise<void>) => method()
+			execute: async (method: () => Promise<void>) => method(),
+			getLocalOriginContext: async () => undefined
 		}));
 
 		const loggingConnectorEntityStorage = new EntityStorageLoggingConnector({
