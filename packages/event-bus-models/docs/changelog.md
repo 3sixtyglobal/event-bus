@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.9.0-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.0-next.0...event-bus-models-v0.9.0-next.1) (2026-06-23)
+
+
+### Features
+
+* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
 ## [0.0.3-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.3...event-bus-models-v0.0.3-next.4) (2026-06-11)
 
 
