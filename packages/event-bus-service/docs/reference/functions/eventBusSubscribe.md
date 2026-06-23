@@ -34,4 +34,4 @@ The emitter to send message back.
 
 `Promise`\<`void`\>
 
-The response object with additional http response properties.
+A promise that resolves when the subscribe response has been emitted to the caller.

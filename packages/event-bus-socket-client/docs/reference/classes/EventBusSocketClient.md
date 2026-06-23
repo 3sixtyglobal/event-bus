@@ -118,7 +118,7 @@ The subscription to unsubscribe.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the subscription has been removed.
 
 #### Implementation of
 
@@ -156,7 +156,11 @@ The data to publish.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that always rejects because publishing is not supported on the client.
+
+#### Throws
+
+NotSupportedError Always, as publishing is not supported on the client side.
 
 #### Implementation of
 
@@ -173,6 +177,8 @@ Handle the socket connection.
 #### Returns
 
 `Promise`\<`void`\>
+
+A promise that resolves when all pending subscribe requests have been re-sent.
 
 #### Overrides
 
@@ -197,6 +203,8 @@ The error to handle.
 #### Returns
 
 `Promise`\<`void`\>
+
+A promise that resolves when the error has been logged.
 
 #### Overrides
 

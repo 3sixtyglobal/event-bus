@@ -60,7 +60,7 @@ The subscription to unsubscribe.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the subscription has been removed.
 
 ***
 
@@ -94,4 +94,4 @@ The data to publish.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the event has been dispatched to all subscribers.

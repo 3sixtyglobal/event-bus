@@ -2,7 +2,7 @@
 
 > **EventBusCallback**\<`T`\> = (`event`) => `Promise`\<`void`\>
 
-Interface describing a event bus callback method.
+Callback invoked when an event is received on a subscribed topic.
 
 ## Type Parameters
 
