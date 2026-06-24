@@ -36,19 +36,33 @@ Options for the client.
 
 ## Properties
 
-### CLASS\_NAME
+### CLASS\_NAME {#class_name}
 
-> `readonly` **CLASS\_NAME**: `string`
+> `readonly` `static` **CLASS\_NAME**: `string`
 
 Runtime name for the class.
 
-#### Implementation of
-
-`IEventBusComponent.CLASS_NAME`
-
 ## Methods
 
-### subscribe()
+### className() {#classname}
+
+> **className**(): `string`
+
+Returns the class name of the component.
+
+#### Returns
+
+`string`
+
+The class name of the component.
+
+#### Implementation of
+
+`IEventBusComponent.className`
+
+***
+
+### subscribe() {#subscribe}
 
 > **subscribe**\<`T`\>(`topic`, `callback`): `Promise`\<`string`\>
 
@@ -86,7 +100,7 @@ The id of the subscription, to be used in unsubscribe.
 
 ***
 
-### unsubscribe()
+### unsubscribe() {#unsubscribe}
 
 > **unsubscribe**(`subscriptionId`): `Promise`\<`void`\>
 
@@ -104,7 +118,7 @@ The subscription to unsubscribe.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the subscription has been removed.
 
 #### Implementation of
 
@@ -112,7 +126,7 @@ Nothing.
 
 ***
 
-### publish()
+### publish() {#publish}
 
 > **publish**\<`T`\>(`topic`, `data`): `Promise`\<`void`\>
 
@@ -142,7 +156,11 @@ The data to publish.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that always rejects because publishing is not supported on the client.
+
+#### Throws
+
+NotSupportedError Always, as publishing is not supported on the client side.
 
 #### Implementation of
 
@@ -150,7 +168,7 @@ Nothing.
 
 ***
 
-### handleConnected()
+### handleConnected() {#handleconnected}
 
 > `protected` **handleConnected**(): `Promise`\<`void`\>
 
@@ -160,13 +178,15 @@ Handle the socket connection.
 
 `Promise`\<`void`\>
 
+A promise that resolves when all pending subscribe requests have been re-sent.
+
 #### Overrides
 
 `BaseSocketClient.handleConnected`
 
 ***
 
-### handleError()
+### handleError() {#handleerror}
 
 > `protected` **handleError**(`err`): `Promise`\<`void`\>
 
@@ -183,6 +203,8 @@ The error to handle.
 #### Returns
 
 `Promise`\<`void`\>
+
+A promise that resolves when the error has been logged.
 
 #### Overrides
 

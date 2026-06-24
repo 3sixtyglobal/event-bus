@@ -28,27 +28,33 @@ The options for the connector.
 
 ## Properties
 
-### NAMESPACE
+### CLASS\_NAME {#class_name}
 
-> `readonly` `static` **NAMESPACE**: `string` = `"event-bus"`
-
-The namespace supported by the event bus connector.
-
-***
-
-### CLASS\_NAME
-
-> `readonly` **CLASS\_NAME**: `string`
+> `readonly` `static` **CLASS\_NAME**: `string`
 
 Runtime name for the class.
 
-#### Implementation of
-
-`IEventBusConnector.CLASS_NAME`
-
 ## Methods
 
-### subscribe()
+### className() {#classname}
+
+> **className**(): `string`
+
+Returns the class name of the component.
+
+#### Returns
+
+`string`
+
+The class name of the component.
+
+#### Implementation of
+
+`IEventBusConnector.className`
+
+***
+
+### subscribe() {#subscribe}
 
 > **subscribe**\<`T`\>(`topic`, `callback`): `Promise`\<`string`\>
 
@@ -86,7 +92,7 @@ The id of the subscription, to be used in unsubscribe.
 
 ***
 
-### unsubscribe()
+### unsubscribe() {#unsubscribe}
 
 > **unsubscribe**(`subscriptionId`): `Promise`\<`void`\>
 
@@ -104,7 +110,7 @@ The subscription to unsubscribe.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the subscription has been removed.
 
 #### Implementation of
 
@@ -112,7 +118,7 @@ Nothing.
 
 ***
 
-### publish()
+### publish() {#publish}
 
 > **publish**\<`T`\>(`topic`, `data`): `Promise`\<`void`\>
 
@@ -142,7 +148,7 @@ The data to publish.
 
 `Promise`\<`void`\>
 
-Nothing.
+A promise that resolves when the event has been dispatched.
 
 #### Implementation of
 

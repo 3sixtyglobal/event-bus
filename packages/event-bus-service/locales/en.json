@@ -1,14 +1,1 @@
-{
-	"info": {
-		"localEventBusConnector": {
-			"subscribe": "Subscription created for topic \"{topic}\" with id \"{subscriptionId}\"",
-			"unsubscribe": "Subscription removed for topic \"{topic}\" with id \"{subscriptionId}\"",
-			"publish": "Event publish for topic \"{topic}\" with id \"{eventId}\", with \"{subscriptionCount}\" subscriptions"
-		}
-	},
-	"error": {
-		"localEventBusConnector": {
-			"callback": "The callback failed during publish topic \"{topic}\" for subscriptionId \"{subscriptionId}\""
-		}
-	}
-}
+{}

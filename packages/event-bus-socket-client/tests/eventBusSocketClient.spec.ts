@@ -19,18 +19,29 @@ import {
 } from "@twin.org/logging-connector-entity-storage";
 import { LoggingConnectorFactory } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
-import { EventBusSocketClient } from "../src/eventBusSocketClient";
+import { EventBusSocketClient } from "../src/eventBusSocketClient.js";
+
+const basePort = Math.floor(Math.random() * 1000);
+let port = 3000 + basePort;
 
 let server: FastifyWebServer;
 let eventBusService: IEventBusComponent;
 
 describe("EventBusSocketClient", () => {
 	beforeEach(async () => {
+		port++;
 		initSchema();
 		const entityStorageConnectorMemory = new MemoryEntityStorageConnector({
-			entitySchema: nameof<LogEntry>()
+			entitySchema: nameof<LogEntry>(),
+			config: { storageKey: "log-entry" }
 		});
 		EntityStorageConnectorFactory.register("log-entry", () => entityStorageConnectorMemory);
+		ComponentFactory.register("platform", () => ({
+			className: () => "platform",
+			isMultiTenant: () => false,
+			execute: async (method: () => Promise<void>) => method(),
+			getLocalOriginContext: async () => undefined
+		}));
 
 		const loggingConnectorEntityStorage = new EntityStorageLoggingConnector({
 			logEntryStorageConnectorType: "log-entry"
@@ -47,7 +58,7 @@ describe("EventBusSocketClient", () => {
 
 		const socketRoutes = generateSocketRoutesEventBus("event-bus", "eventBus");
 
-		await server.build(undefined, undefined, [new SocketRouteProcessor()], socketRoutes);
+		await server.build(undefined, undefined, [new SocketRouteProcessor()], socketRoutes, { port });
 
 		await server.start();
 	});
@@ -57,7 +68,7 @@ describe("EventBusSocketClient", () => {
 	});
 
 	test("can create a server and connect to it with the socket client", async () => {
-		const client = new EventBusSocketClient({ config: { endpoint: "http://localhost:3000" } });
+		const client = new EventBusSocketClient({ config: { endpoint: `http://localhost:${port}` } });
 		const receivedTestPayloads: IEvent<{ value: number }>[] = [];
 
 		// Subscribe to the test event

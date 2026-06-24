@@ -22,7 +22,7 @@ import type {
 } from "@twin.org/event-bus-models";
 import type { ILoggingComponent } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
-import type { IEventBusSocketClientConstructorOptions } from "./models/IEventBusSocketClientConstructorOptions";
+import type { IEventBusSocketClientConstructorOptions } from "./models/IEventBusSocketClientConstructorOptions.js";
 
 /**
  * Event bus which publishes using REST API and websockets.
@@ -31,13 +31,13 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<EventBusSocketClient>();
+	public static readonly CLASS_NAME: string = nameof<EventBusSocketClient>();
 
 	/**
 	 * The logging service for information.
 	 * @internal
 	 */
-	private readonly _loggingComponent?: ILoggingComponent;
+	private readonly _logging?: ILoggingComponent;
 
 	/**
 	 * Subscriptions to the events.
@@ -60,16 +60,20 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 		this._subscriptions = {};
 
-		if (Is.stringValue(options?.loggingComponentType)) {
-			this._loggingComponent = ComponentFactory.getIfExists(options?.loggingComponentType);
-		}
+		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType);
 
 		super.onEvent<IEventBusSubscribeResponse>("subscribe", async data =>
 			this.subscribeResponse(data)
 		);
-		super.onEvent<IHttpResponse<IEvent<unknown>>>("publish", async data =>
-			this.incomingPublish(data)
-		);
+		super.onEvent<IHttpResponse<IEvent>>("publish", async data => this.incomingPublish(data));
+	}
+
+	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return EventBusSocketClient.CLASS_NAME;
 	}
 
 	/**
@@ -79,8 +83,8 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * @returns The id of the subscription, to be used in unsubscribe.
 	 */
 	public async subscribe<T>(topic: string, callback: EventBusCallback<T>): Promise<string> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
-		Guards.function(this.CLASS_NAME, nameof(callback), callback);
+		Guards.stringValue(EventBusSocketClient.CLASS_NAME, nameof(topic), topic);
+		Guards.function(EventBusSocketClient.CLASS_NAME, nameof(callback), callback);
 
 		const subscriptionId = Converter.bytesToHex(RandomHelper.generate(16));
 
@@ -97,9 +101,9 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 			super.sendEvent("subscribe", request);
 		}
 
-		await this._loggingComponent?.log({
+		await this._logging?.log({
 			level: "info",
-			source: this.CLASS_NAME,
+			source: EventBusSocketClient.CLASS_NAME,
 			ts: Date.now(),
 			message: "subscribe",
 			data: {
@@ -114,16 +118,16 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Unsubscribe from the event bus.
 	 * @param subscriptionId The subscription to unsubscribe.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the subscription has been removed.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(subscriptionId), subscriptionId);
+		Guards.stringValue(EventBusSocketClient.CLASS_NAME, nameof(subscriptionId), subscriptionId);
 
 		for (const topic in this._subscriptions) {
 			if (this._subscriptions[topic].subscriberCallbacks[subscriptionId]) {
-				await this._loggingComponent?.log({
+				await this._logging?.log({
 					level: "info",
-					source: this.CLASS_NAME,
+					source: EventBusSocketClient.CLASS_NAME,
 					ts: Date.now(),
 					message: "unsubscribe",
 					data: {
@@ -163,14 +167,18 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	 * Publish an event to the bus.
 	 * @param topic The topic to publish.
 	 * @param data The data to publish.
-	 * @returns Nothing.
+	 * @returns A promise that always rejects because publishing is not supported on the client.
+	 * @throws NotSupportedError Always, as publishing is not supported on the client side.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
-		throw new NotSupportedError(this.CLASS_NAME, "publish");
+		throw new NotSupportedError(EventBusSocketClient.CLASS_NAME, "notSupportedOnClient", {
+			methodName: "publish"
+		});
 	}
 
 	/**
 	 * Handle the socket connection.
+	 * @returns A promise that resolves when all pending subscribe requests have been re-sent.
 	 */
 	protected async handleConnected(): Promise<void> {
 		// The socket has reconnected so send subscribe requests
@@ -188,11 +196,12 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 	/**
 	 * Handle an error.
 	 * @param err The error to handle.
+	 * @returns A promise that resolves when the error has been logged.
 	 */
 	protected async handleError(err: IError): Promise<void> {
-		await this._loggingComponent?.log({
+		await this._logging?.log({
 			level: "error",
-			source: this.CLASS_NAME,
+			source: EventBusSocketClient.CLASS_NAME,
 			ts: Date.now(),
 			message: "socketConnect",
 			error: err
@@ -201,7 +210,8 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 	/**
 	 * Handle an incoming subscribe event.
-	 * @param publishEmit The incoming data.
+	 * @param subscribeResponse The incoming data.
+	 * @returns A promise that resolves when the subscription id has been recorded.
 	 * @internal
 	 */
 	private async subscribeResponse(subscribeResponse: IEventBusSubscribeResponse): Promise<void> {
@@ -213,11 +223,11 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 
 	/**
 	 * Handle an incoming publish event.
-	 * @param topic The incoming topic.
 	 * @param event The incoming data.
+	 * @returns A promise that resolves when all subscriber callbacks have been invoked.
 	 * @internal
 	 */
-	private async incomingPublish(event: IHttpResponse<IEvent<unknown>>): Promise<void> {
+	private async incomingPublish(event: IHttpResponse<IEvent>): Promise<void> {
 		if (!Is.empty(event.body) && this._subscriptions[event.body.topic]) {
 			for (const subscriptionId in this._subscriptions[event.body.topic].subscriberCallbacks) {
 				try {
@@ -225,9 +235,9 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 						event.body
 					);
 				} catch (error) {
-					await this._loggingComponent?.log({
+					await this._logging?.log({
 						level: "error",
-						source: this.CLASS_NAME,
+						source: EventBusSocketClient.CLASS_NAME,
 						ts: Date.now(),
 						message: "callback",
 						error: BaseError.fromError(error),

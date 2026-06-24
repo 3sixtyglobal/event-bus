@@ -1,12 +1,15 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import type { ISocketRouteEntryPoint } from "@twin.org/api-models";
-import { generateSocketRoutesEventBus, tagsEventBus } from "./eventBusRoutes";
+import { generateSocketRoutesEventBus, tagsEventBus } from "./eventBusRoutes.js";
 
+/**
+ * Socket route entry points for the event bus service.
+ */
 export const socketEntryPoints: ISocketRouteEntryPoint[] = [
 	{
-		name: "immutable-proof",
-		defaultBaseRoute: "immutable-proof",
+		name: "event-bus",
+		defaultBaseRoute: "event-bus",
 		tags: tagsEventBus,
 		generateRoutes: generateSocketRoutesEventBus
 	}

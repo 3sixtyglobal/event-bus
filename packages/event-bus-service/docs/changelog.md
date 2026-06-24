@@ -1,12 +1,209 @@
-# @twin.org/event-bus-service - Changelog
+# Changelog
+
+## [0.9.0-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.9.0-next.0...event-bus-service-v0.9.0-next.1) (2026-06-23)
+
+
+### Features
+
+* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* correct event-bus route naming ([68216fc](https://github.com/iotaledger/twin-event-bus/commit/68216fc80ddb0f5ec8e18ab3e222e65791843bb2))
+* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* remove unused namespace ([e6d3897](https://github.com/iotaledger/twin-event-bus/commit/e6d38976f66b7a91b28ad8d0fc02ee06c62dd805))
+* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use new socket route types ([899d031](https://github.com/iotaledger/twin-event-bus/commit/899d031ea4a503289198517994100e30480f2e49))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.9.0-next.0 to 0.9.0-next.1
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.9.0-next.0 to 0.9.0-next.1
+
+## [0.0.3-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.3-next.3...event-bus-service-v0.0.3-next.4) (2026-06-11)
+
+
+### Miscellaneous Chores
+
+* **event-bus-service:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.3 to 0.0.3-next.4
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.3-next.3 to 0.0.3-next.4
+
+## [0.0.3-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.3-next.2...event-bus-service-v0.0.3-next.3) (2026-05-20)
+
+
+### Features
+
+* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.2 to 0.0.3-next.3
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.3-next.2 to 0.0.3-next.3
+
+## [0.0.3-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.3-next.1...event-bus-service-v0.0.3-next.2) (2026-05-11)
+
+
+### Features
+
+* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.1 to 0.0.3-next.2
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.3-next.1 to 0.0.3-next.2
+
+## [0.0.3-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.3-next.0...event-bus-service-v0.0.3-next.1) (2025-11-10)
+
+
+### Features
+
+* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* correct event-bus route naming ([68216fc](https://github.com/iotaledger/twin-event-bus/commit/68216fc80ddb0f5ec8e18ab3e222e65791843bb2))
+* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* remove unused namespace ([e6d3897](https://github.com/iotaledger/twin-event-bus/commit/e6d38976f66b7a91b28ad8d0fc02ee06c62dd805))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use new socket route types ([899d031](https://github.com/iotaledger/twin-event-bus/commit/899d031ea4a503289198517994100e30480f2e49))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.3-next.0 to 0.0.3-next.1
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.3-next.0 to 0.0.3-next.1
+
+## [0.0.2-next.6](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.2-next.5...event-bus-service-v0.0.2-next.6) (2025-10-09)
+
+
+### Features
+
+* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.5 to 0.0.2-next.6
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.5 to 0.0.2-next.6
+
+## [0.0.2-next.5](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.2-next.4...event-bus-service-v0.0.2-next.5) (2025-08-29)
+
+
+### Features
+
+* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.4 to 0.0.2-next.5
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.4 to 0.0.2-next.5
+
+## [0.0.2-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.2-next.3...event-bus-service-v0.0.2-next.4) (2025-08-25)
+
+
+### Features
+
+* correct event-bus route naming ([68216fc](https://github.com/iotaledger/twin-event-bus/commit/68216fc80ddb0f5ec8e18ab3e222e65791843bb2))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.3 to 0.0.2-next.4
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.3 to 0.0.2-next.4
+
+## [0.0.2-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.2-next.2...event-bus-service-v0.0.2-next.3) (2025-08-20)
+
+
+### Miscellaneous Chores
+
+* **event-bus-service:** Synchronize repo versions
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.2 to 0.0.2-next.3
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.2 to 0.0.2-next.3
+
+## [0.0.2-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.2-next.1...event-bus-service-v0.0.2-next.2) (2025-08-19)
+
+
+### Features
+
+* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.1 to 0.0.2-next.2
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.1 to 0.0.2-next.2
+
+## [0.0.2-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.2-next.0...event-bus-service-v0.0.2-next.1) (2025-07-24)
+
+
+### Features
+
+* remove unused namespace ([e6d3897](https://github.com/iotaledger/twin-event-bus/commit/e6d38976f66b7a91b28ad8d0fc02ee06c62dd805))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use new socket route types ([899d031](https://github.com/iotaledger/twin-event-bus/commit/899d031ea4a503289198517994100e30480f2e49))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.0.2-next.0 to 0.0.2-next.1
+  * devDependencies
+    * @twin.org/event-bus-connector-local bumped from 0.0.2-next.0 to 0.0.2-next.1
 
 ## 0.0.1 (2025-07-04)
 
 
 ### Features
 
-* update dependencies ([a313000](https://github.com/twinfoundation/event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/twinfoundation/event-bus/issues/2)) ([1ded106](https://github.com/twinfoundation/event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
 
 ### Dependencies
@@ -17,12 +214,12 @@
   * devDependencies
     * @twin.org/event-bus-connector-local bumped from ^0.0.0 to ^0.0.1
 
-## [0.0.1-next.11](https://github.com/twinfoundation/event-bus/compare/event-bus-service-v0.0.1-next.10...event-bus-service-v0.0.1-next.11) (2025-06-12)
+## [0.0.1-next.11](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.1-next.10...event-bus-service-v0.0.1-next.11) (2025-06-12)
 
 
 ### Features
 
-* update dependencies ([a313000](https://github.com/twinfoundation/event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
 
 
 ### Dependencies
@@ -33,12 +230,12 @@
   * devDependencies
     * @twin.org/event-bus-connector-local bumped from 0.0.1-next.10 to 0.0.1-next.11
 
-## [0.0.1-next.10](https://github.com/twinfoundation/event-bus/compare/event-bus-service-v0.0.1-next.9...event-bus-service-v0.0.1-next.10) (2025-04-17)
+## [0.0.1-next.10](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.1-next.9...event-bus-service-v0.0.1-next.10) (2025-04-17)
 
 
 ### Features
 
-* use shared store mechanism ([#2](https://github.com/twinfoundation/event-bus/issues/2)) ([1ded106](https://github.com/twinfoundation/event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
 
 ### Dependencies
@@ -49,7 +246,7 @@
   * devDependencies
     * @twin.org/event-bus-connector-local bumped from 0.0.1-next.9 to 0.0.1-next.10
 
-## [0.0.1-next.9](https://github.com/twinfoundation/event-bus/compare/event-bus-service-v0.0.1-next.8...event-bus-service-v0.0.1-next.9) (2025-03-28)
+## [0.0.1-next.9](https://github.com/iotaledger/twin-event-bus/compare/event-bus-service-v0.0.1-next.8...event-bus-service-v0.0.1-next.9) (2025-03-28)
 
 
 ### Miscellaneous Chores

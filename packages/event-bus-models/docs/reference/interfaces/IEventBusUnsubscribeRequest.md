@@ -4,7 +4,7 @@ Unsubscribe from an event bus topic.
 
 ## Properties
 
-### body
+### body {#body}
 
 > **body**: `object`
 

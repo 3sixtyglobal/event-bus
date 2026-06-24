@@ -1,10 +1,10 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { BaseError, Converter, Guards, RandomHelper } from "@twin.org/core";
+import { BaseError, ComponentFactory, Converter, Guards, RandomHelper } from "@twin.org/core";
 import type { EventBusCallback, IEvent, IEventBusConnector } from "@twin.org/event-bus-models";
-import { type ILoggingConnector, LoggingConnectorFactory } from "@twin.org/logging-models";
+import type { ILoggingComponent } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
-import type { ILocalEventBusConnectorConstructorOptions } from "./models/ILocalEventBusConnectorConstructorOptions";
+import type { ILocalEventBusConnectorConstructorOptions } from "./models/ILocalEventBusConnectorConstructorOptions.js";
 
 /**
  * Class for performing event bus operations locally.
@@ -18,13 +18,13 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	/**
 	 * Runtime name for the class.
 	 */
-	public readonly CLASS_NAME: string = nameof<LocalEventBusConnector>();
+	public static readonly CLASS_NAME: string = nameof<LocalEventBusConnector>();
 
 	/**
 	 * The logger for the event bus connector.
 	 * @internal
 	 */
-	private readonly _logging?: ILoggingConnector;
+	private readonly _logging?: ILoggingComponent;
 
 	/**
 	 * Subscriptions to the events.
@@ -42,8 +42,16 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @param options The options for the connector.
 	 */
 	constructor(options?: ILocalEventBusConnectorConstructorOptions) {
-		this._logging = LoggingConnectorFactory.getIfExists(options?.loggingConnectorType ?? "logging");
+		this._logging = ComponentFactory.getIfExists(options?.loggingComponentType);
 		this._subscriptions = {};
+	}
+
+	/**
+	 * Returns the class name of the component.
+	 * @returns The class name of the component.
+	 */
+	public className(): string {
+		return LocalEventBusConnector.CLASS_NAME;
 	}
 
 	/**
@@ -53,8 +61,8 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * @returns The id of the subscription, to be used in unsubscribe.
 	 */
 	public async subscribe<T>(topic: string, callback: EventBusCallback<T>): Promise<string> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
-		Guards.function(this.CLASS_NAME, nameof(callback), callback);
+		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(topic), topic);
+		Guards.function(LocalEventBusConnector.CLASS_NAME, nameof(callback), callback);
 
 		const subscriptionId = Converter.bytesToHex(RandomHelper.generate(16));
 
@@ -63,7 +71,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 
 		await this._logging?.log({
 			level: "info",
-			source: this.CLASS_NAME,
+			source: LocalEventBusConnector.CLASS_NAME,
 			ts: Date.now(),
 			message: "subscribe",
 			data: {
@@ -78,10 +86,10 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	/**
 	 * Unsubscribe from the event bus.
 	 * @param subscriptionId The subscription to unsubscribe.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the subscription has been removed.
 	 */
 	public async unsubscribe(subscriptionId: string): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(subscriptionId), subscriptionId);
+		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(subscriptionId), subscriptionId);
 
 		for (const topic in this._subscriptions) {
 			if (this._subscriptions[topic][subscriptionId]) {
@@ -95,7 +103,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 
 				await this._logging?.log({
 					level: "info",
-					source: this.CLASS_NAME,
+					source: LocalEventBusConnector.CLASS_NAME,
 					ts: Date.now(),
 					message: "unsubscribe",
 					data: {
@@ -112,10 +120,10 @@ export class LocalEventBusConnector implements IEventBusConnector {
 	 * Publish an event to the bus.
 	 * @param topic The topic to publish.
 	 * @param data The data to publish.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the event has been dispatched to all subscribers.
 	 */
 	public async publish<T>(topic: string, data: T): Promise<void> {
-		Guards.stringValue(this.CLASS_NAME, nameof(topic), topic);
+		Guards.stringValue(LocalEventBusConnector.CLASS_NAME, nameof(topic), topic);
 
 		const event: IEvent<T> = {
 			id: Converter.bytesToHex(RandomHelper.generate(16)),
@@ -128,7 +136,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 
 		await this._logging?.log({
 			level: "info",
-			source: this.CLASS_NAME,
+			source: LocalEventBusConnector.CLASS_NAME,
 			ts: Date.now(),
 			message: "publish",
 			data: {
@@ -145,7 +153,7 @@ export class LocalEventBusConnector implements IEventBusConnector {
 				} catch (error) {
 					await this._logging?.log({
 						level: "error",
-						source: this.CLASS_NAME,
+						source: LocalEventBusConnector.CLASS_NAME,
 						ts: Date.now(),
 						message: "callback",
 						error: BaseError.fromError(error),

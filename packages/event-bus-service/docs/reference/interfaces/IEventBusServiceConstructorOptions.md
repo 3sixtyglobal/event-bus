@@ -4,9 +4,9 @@ The options for the event bus service.
 
 ## Properties
 
-### eventBusConnectorType?
+### eventBusConnectorType? {#eventbusconnectortype}
 
-> `optional` **eventBusConnectorType**: `string`
+> `optional` **eventBusConnectorType?**: `string`
 
 The event bus connector type.
 

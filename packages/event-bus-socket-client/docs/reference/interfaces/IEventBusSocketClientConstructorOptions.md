@@ -4,15 +4,15 @@ The options for the event bus socket client.
 
 ## Properties
 
-### loggingComponentType?
+### loggingComponentType? {#loggingcomponenttype}
 
-> `optional` **loggingComponentType**: `string`
+> `optional` **loggingComponentType?**: `string`
 
 The type of logging component to use, defaults to no logging.
 
 ***
 
-### config
+### config {#config}
 
 > **config**: [`IEventBusSocketClientConfig`](IEventBusSocketClientConfig.md)
 

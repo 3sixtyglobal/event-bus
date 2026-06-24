@@ -1,6 +1,6 @@
 # TWIN Event Bus Models
 
-Models which define the structure of the event bus contracts and connectors.
+Defines shared event contracts, callbacks, and connector interfaces used across the repository.
 
 ## Installation
 

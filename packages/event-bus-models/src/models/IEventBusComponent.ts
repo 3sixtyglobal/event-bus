@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
 import type { IComponent } from "@twin.org/core";
-import type { EventBusCallback } from "./eventBusCallback";
+import type { EventBusCallback } from "./eventBusCallback.js";
 
 /**
  * Interface describing an event bus component.
@@ -18,7 +18,7 @@ export interface IEventBusComponent extends IComponent {
 	/**
 	 * Unsubscribe from the event bus.
 	 * @param subscriptionId The subscription to unsubscribe.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the subscription has been removed.
 	 */
 	unsubscribe(subscriptionId: string): Promise<void>;
 
@@ -26,7 +26,7 @@ export interface IEventBusComponent extends IComponent {
 	 * Publish an event to the bus.
 	 * @param topic The topic to publish.
 	 * @param data The data to publish.
-	 * @returns Nothing.
+	 * @returns A promise that resolves when the event has been dispatched to all subscribers.
 	 */
 	publish<T>(topic: string, data: T): Promise<void>;
 }
