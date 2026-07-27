@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.1...event-bus-models-v0.9.1) (2026-07-27)
+
+
+### Features
+
+* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* release to production ([#44](https://github.com/iotaledger/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/iotaledger/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
 ## [0.9.1-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.1-next.0...event-bus-models-v0.9.1-next.1) (2026-06-26)
 
 
