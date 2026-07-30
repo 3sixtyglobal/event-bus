@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.9.2-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.9.2-next.0...event-bus-connector-local-v0.9.2-next.1) (2026-07-30)
+
+
+### Features
+
+* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* remove default logging ([6c824b5](https://github.com/iotaledger/twin-event-bus/commit/6c824b59a38a34427bdd5a7976f42d6faf29ab32))
+* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+
+### Bug Fixes
+
+* extraneous type ([c49bdf7](https://github.com/iotaledger/twin-event-bus/commit/c49bdf7cfbe51adf970ad7b33892dac0b90eab0d))
+* missing dependency ([46ee766](https://github.com/iotaledger/twin-event-bus/commit/46ee766551cd89c43fbe0ae60277111e03c7dd74))
+* register platform mock in event bus connector tests ([#32](https://github.com/iotaledger/twin-event-bus/issues/32)) ([5c60aee](https://github.com/iotaledger/twin-event-bus/commit/5c60aee9b622a3dec9d1fb8b341b73ce76f8f1f8))
+* test mocks ([a688d7c](https://github.com/iotaledger/twin-event-bus/commit/a688d7ca5bf5384e0f1ad05ded5e687639956bcd))
+* use async getStore in tests ([44e886d](https://github.com/iotaledger/twin-event-bus/commit/44e886df224fc366bd14e5c75bd1920e3c98773a))
+* use async getStore in tests ([28212f9](https://github.com/iotaledger/twin-event-bus/commit/28212f98d2fb2aad5e173a77ada70f5649a8ae3d))
+* use async getStore in tests ([ea38ece](https://github.com/iotaledger/twin-event-bus/commit/ea38ece73ecdba6dc4c525a2cf8efc0e0a57abb3))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.9.2-next.0 to 0.9.2-next.1
+
 ## [0.9.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.9.1...event-bus-connector-local-v0.9.1) (2026-07-27)
 
 
