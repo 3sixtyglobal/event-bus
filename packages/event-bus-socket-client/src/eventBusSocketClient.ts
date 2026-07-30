@@ -157,9 +157,11 @@ export class EventBusSocketClient extends BaseSocketClient implements IEventBusC
 			}
 		}
 
-		// There are no more subscriptions so disconnect the socket
+		// There are no more subscriptions so disconnect the socket.
+		// Deferred by one event-loop tick so the unsubscribe event
+		// is flushed to the server before the socket closes.
 		if (Object.keys(this._subscriptions).length === 0) {
-			super.socketDisconnect();
+			globalThis.setTimeout(() => super.socketDisconnect(), 0);
 		}
 	}
 

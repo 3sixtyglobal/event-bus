@@ -19,6 +19,7 @@ import {
 } from "@twin.org/logging-connector-entity-storage";
 import { LoggingConnectorFactory } from "@twin.org/logging-models";
 import { nameof } from "@twin.org/nameof";
+import type { Socket } from "socket.io-client";
 import { EventBusSocketClient } from "../src/eventBusSocketClient.js";
 
 const basePort = Math.floor(Math.random() * 1000);
@@ -93,5 +94,106 @@ describe("EventBusSocketClient", () => {
 		// We should have received the test event in the client callback
 		expect(receivedTestPayloads.length).toEqual(10);
 		expect(receivedTestPayloads[0].data).toEqual({ value: 123 });
+	});
+
+	test("subscribing to multiple topics before socket connects creates exactly one subscription per topic", async () => {
+		const client = new EventBusSocketClient({ config: { endpoint: `http://localhost:${port}` } });
+		const receivedA: IEvent<{ value: number }>[] = [];
+		const receivedB: IEvent<{ value: number }>[] = [];
+		const receivedC: IEvent<{ value: number }>[] = [];
+
+		// Subscribe to three topics in rapid succession before the socket is connected.
+		// Each call used to register a new "connect" listener, causing handleConnected()
+		// to replay all topics N times — producing N server-side subscriptions per topic.
+		const [subA, subB, subC] = await Promise.all([
+			client.subscribe<{ value: number }>("multi-topic-a", async e => {
+				receivedA.push(e);
+			}),
+			client.subscribe<{ value: number }>("multi-topic-b", async e => {
+				receivedB.push(e);
+			}),
+			client.subscribe<{ value: number }>("multi-topic-c", async e => {
+				receivedC.push(e);
+			})
+		]);
+
+		// Wait for connection and all subscribe responses to settle
+		await new Promise(resolve => setTimeout(resolve, 200));
+
+		await eventBusService.publish("multi-topic-a", { value: 1 });
+		await eventBusService.publish("multi-topic-b", { value: 2 });
+		await eventBusService.publish("multi-topic-c", { value: 3 });
+
+		await new Promise(resolve => setTimeout(resolve, 100));
+
+		// Each callback must fire exactly once — not three times
+		expect(receivedA).toHaveLength(1);
+		expect(receivedB).toHaveLength(1);
+		expect(receivedC).toHaveLength(1);
+
+		await Promise.all([
+			client.unsubscribe(subA),
+			client.unsubscribe(subB),
+			client.unsubscribe(subC)
+		]);
+	});
+
+	test("server releases subscription when socket disconnects abruptly", async () => {
+		const client = new EventBusSocketClient({ config: { endpoint: `http://localhost:${port}` } });
+		const received: IEvent<{ value: number }>[] = [];
+
+		await client.subscribe<{ value: number }>("test-abrupt-disconnect", async event => {
+			received.push(event);
+		});
+
+		// Wait for subscription to establish
+		await new Promise(resolve => setTimeout(resolve, 200));
+
+		// Forcefully close the underlying socket without going through the unsubscribe flow,
+		// simulating a dropped connection (browser tab close, network cut, etc.)
+		(client as unknown as { _socket: Socket })._socket.disconnect();
+
+		// Wait for the server's disconnected handler to run and clean up the subscription
+		await new Promise(resolve => setTimeout(resolve, 200));
+
+		// Publish — the subscription should have been released so no events are delivered
+		await eventBusService.publish("test-abrupt-disconnect", { value: 99 });
+
+		await new Promise(resolve => setTimeout(resolve, 100));
+
+		expect(received).toHaveLength(0);
+	});
+
+	test("server subscription is cleaned up after explicit client unsubscribe", async () => {
+		const connector = (eventBusService as unknown as { _eventBus: LocalEventBusConnector })
+			._eventBus;
+		const client = new EventBusSocketClient({ config: { endpoint: `http://localhost:${port}` } });
+
+		const subscriptionId = await client.subscribe<{ value: number }>(
+			"test-clean-unsubscribe",
+			async () => {}
+		);
+
+		// Wait for subscription to establish on the server
+		await new Promise(resolve => setTimeout(resolve, 200));
+
+		expect(
+			Object.keys(
+				(connector as unknown as { _subscriptions: { [key: string]: unknown } })._subscriptions[
+					"test-clean-unsubscribe"
+				] ?? {}
+			)
+		).toHaveLength(1);
+
+		await client.unsubscribe(subscriptionId);
+
+		// Wait for the unsubscribe to be processed by the server
+		await new Promise(resolve => setTimeout(resolve, 200));
+
+		expect(
+			(connector as unknown as { _subscriptions: { [key: string]: unknown } })._subscriptions[
+				"test-clean-unsubscribe"
+			]
+		).toBeUndefined();
 	});
 });

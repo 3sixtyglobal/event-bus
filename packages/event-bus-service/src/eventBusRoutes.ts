@@ -41,21 +41,51 @@ export function generateSocketRoutesEventBus(
 	baseRouteName: string,
 	componentName: string
 ): ISocketRoute[] {
+	const socketSubscriptions = new Map<string, string[]>();
+
 	const subscribeRoute: ISocketRoute<
 		IEventBusSubscribeRequest,
 		IEventBusSubscribeResponse | IEventBusPublish
 	> = {
 		operationId: "eventBusSubscribe",
 		path: `${baseRouteName}/subscribe`,
-		handler: async (httpRequestContext, request, emitter) =>
-			eventBusSubscribe(httpRequestContext, componentName, request, emitter)
+		handler: async (httpRequestContext, request, emitter) => {
+			const subscriptionId = await eventBusSubscribe(
+				httpRequestContext,
+				componentName,
+				request,
+				emitter
+			);
+			const existing = socketSubscriptions.get(httpRequestContext.socketId) ?? [];
+			socketSubscriptions.set(httpRequestContext.socketId, [...existing, subscriptionId]);
+		},
+		disconnected: async socketRequestContext => {
+			const subscriptionIds = socketSubscriptions.get(socketRequestContext.socketId);
+			if (subscriptionIds) {
+				socketSubscriptions.delete(socketRequestContext.socketId);
+				const component = ComponentFactory.get<IEventBusComponent>(componentName);
+				for (const subscriptionId of subscriptionIds) {
+					await component.unsubscribe(subscriptionId);
+				}
+			}
+		}
 	};
 
 	const unsubscribeRoute: ISocketRoute<IEventBusUnsubscribeRequest, INoContentResponse> = {
 		operationId: "eventBusUnsubscribe",
 		path: `${baseRouteName}/unsubscribe`,
-		handler: async (httpRequestContext, request, emitter) =>
-			eventBusUnsubscribe(httpRequestContext, componentName, request, emitter)
+		handler: async (httpRequestContext, request, emitter) => {
+			await eventBusUnsubscribe(httpRequestContext, componentName, request, emitter);
+			const existing = socketSubscriptions.get(httpRequestContext.socketId);
+			if (existing) {
+				const updated = existing.filter(id => id !== request.body.subscriptionId);
+				if (updated.length === 0) {
+					socketSubscriptions.delete(httpRequestContext.socketId);
+				} else {
+					socketSubscriptions.set(httpRequestContext.socketId, updated);
+				}
+			}
+		}
 	};
 
 	return [subscribeRoute, unsubscribeRoute];
@@ -74,7 +104,7 @@ export async function eventBusSubscribe(
 	componentName: string,
 	request: IEventBusSubscribeRequest,
 	emitter: (topic: string, response: IEventBusSubscribeResponse | IEventBusPublish) => Promise<void>
-): Promise<void> {
+): Promise<string> {
 	Guards.object<IEventBusSubscribeRequest>(ROUTES_SOURCE, nameof(request), request);
 	Guards.stringValue(ROUTES_SOURCE, nameof(request.body.topic), request.body.topic);
 
@@ -91,6 +121,8 @@ export async function eventBusSubscribe(
 			subscriptionId
 		}
 	});
+
+	return subscriptionId;
 }
 
 /**
