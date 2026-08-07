@@ -111,7 +111,7 @@ describe("EventBusSocketClient", () => {
 
 			// Subscribe to three topics in rapid succession before the socket is connected.
 			// Each call used to register a new "connect" listener, causing handleConnected()
-			// to replay all topics N times — producing N server-side subscriptions per topic.
+			// to replay all topics N times - producing N server-side subscriptions per topic.
 			const [subA, subB, subC] = await Promise.all([
 				client.subscribe<{ value: number }>("multi-topic-a", async e => {
 					receivedA.push(e);
@@ -170,7 +170,7 @@ describe("EventBusSocketClient", () => {
 		// Wait for the server's disconnected handler to run and clean up the subscription
 		await new Promise(resolve => setTimeout(resolve, 200));
 
-		// Publish — the subscription should have been released so no events are delivered
+		// Publish - the subscription should have been released so no events are delivered
 		await eventBusService.publish("test-abrupt-disconnect", { value: 99 });
 
 		await new Promise(resolve => setTimeout(resolve, 100));
