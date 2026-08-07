@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.9.2-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.9.2-next.1...event-bus-connector-local-v0.9.2-next.2) (2026-08-07)
+
+
+### Features
+
+* linting and dependency update ([dc49c55](https://github.com/iotaledger/twin-event-bus/commit/dc49c55463b0f3479b46732809c36773b28c95c3))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @twin.org/event-bus-models bumped from 0.9.2-next.1 to 0.9.2-next.2
+
 ## [0.9.2-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.9.2-next.0...event-bus-connector-local-v0.9.2-next.1) (2026-07-30)
 
 
