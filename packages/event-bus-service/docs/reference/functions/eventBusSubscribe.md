@@ -1,6 +1,6 @@
 # Function: eventBusSubscribe()
 
-> **eventBusSubscribe**(`socketRequestContext`, `componentName`, `request`, `emitter`): `Promise`\<`void`\>
+> **eventBusSubscribe**(`socketRequestContext`, `componentName`, `request`, `emitter`): `Promise`\<`string`\>
 
 Subscribe to a topic.
 
@@ -32,6 +32,6 @@ The emitter to send message back.
 
 ## Returns
 
-`Promise`\<`void`\>
+`Promise`\<`string`\>
 
 A promise that resolves when the subscribe response has been emitted to the caller.
