@@ -249,23 +249,23 @@ importers:
         version: link:../event-bus-models
       '@twin.org/logging-models':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/nameof':
         specifier: next
         version: 0.10.1-next.10
     devDependencies:
       '@twin.org/entity-storage-connector-memory':
         specifier: next
-        version: 0.10.1-next.9
+        version: 0.10.1-next.10
       '@twin.org/entity-storage-models':
         specifier: next
-        version: 0.10.1-next.9
+        version: 0.10.1-next.10
       '@twin.org/logging-connector-entity-storage':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/logging-service':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/nameof-transformer':
         specifier: next
         version: 0.10.1-next.10
@@ -359,7 +359,7 @@ importers:
     dependencies:
       '@twin.org/api-models':
         specifier: next
-        version: 0.10.1-next.5
+        version: 0.10.1-next.6
       '@twin.org/core':
         specifier: next
         version: 0.10.1-next.10
@@ -368,26 +368,26 @@ importers:
         version: link:../event-bus-models
       '@twin.org/logging-models':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/nameof':
         specifier: next
         version: 0.10.1-next.10
     devDependencies:
       '@twin.org/api-processors':
         specifier: next
-        version: 0.10.1-next.5
+        version: 0.10.1-next.6
       '@twin.org/api-server-fastify':
         specifier: next
-        version: 0.10.1-next.5(supports-color@10.2.2)
+        version: 0.10.1-next.6(supports-color@10.2.2)
       '@twin.org/entity-storage-connector-memory':
         specifier: next
-        version: 0.10.1-next.9
+        version: 0.10.1-next.10
       '@twin.org/event-bus-connector-local':
         specifier: 0.10.1-next.0
         version: link:../event-bus-connector-local
       '@twin.org/logging-connector-entity-storage':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/nameof-transformer':
         specifier: next
         version: 0.10.1-next.10
@@ -435,10 +435,10 @@ importers:
     dependencies:
       '@twin.org/api-core':
         specifier: next
-        version: 0.10.1-next.5(supports-color@10.2.2)
+        version: 0.10.1-next.6(supports-color@10.2.2)
       '@twin.org/api-models':
         specifier: next
-        version: 0.10.1-next.5
+        version: 0.10.1-next.6
       '@twin.org/core':
         specifier: next
         version: 0.10.1-next.10
@@ -447,23 +447,23 @@ importers:
         version: link:../event-bus-models
       '@twin.org/logging-models':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/nameof':
         specifier: next
         version: 0.10.1-next.10
     devDependencies:
       '@twin.org/api-processors':
         specifier: next
-        version: 0.10.1-next.5
+        version: 0.10.1-next.6
       '@twin.org/api-server-fastify':
         specifier: next
-        version: 0.10.1-next.5(supports-color@10.2.2)
+        version: 0.10.1-next.6(supports-color@10.2.2)
       '@twin.org/entity-storage-connector-memory':
         specifier: next
-        version: 0.10.1-next.9
+        version: 0.10.1-next.10
       '@twin.org/entity-storage-models':
         specifier: next
-        version: 0.10.1-next.9
+        version: 0.10.1-next.10
       '@twin.org/event-bus-connector-local':
         specifier: 0.10.1-next.0
         version: link:../event-bus-connector-local
@@ -472,7 +472,7 @@ importers:
         version: link:../event-bus-service
       '@twin.org/logging-connector-entity-storage':
         specifier: next
-        version: 0.10.1-next.2
+        version: 0.10.1-next.3
       '@twin.org/nameof-transformer':
         specifier: next
         version: 0.10.1-next.10
@@ -941,8 +941,8 @@ packages:
   '@fastify/ajv-compiler@4.0.6':
     resolution: {integrity: sha512-NtuzM0SfaMJbGlnjr9LWQUN5LzgSrbB8tf/wRZNas+4E1O/Nmzl53e7ruT61HDZyRCJGC6FxIogmNZO1c5ETBA==}
 
-  '@fastify/compress@9.1.1':
-    resolution: {integrity: sha512-YRv6HsKhI8TjdW/Etwo2GskrN8x5YaacSQhmeyc1dIgptvKPCFGRkXVciNvnCZULM1Np90b0TUM3D90l3VF1Zw==}
+  '@fastify/compress@9.2.0':
+    resolution: {integrity: sha512-35VL33PIEt/UbD/ZMlRNaICd2BQz0IaG7en74Dv7tI+MHIQkedibS1+9JfekWH4I1g+Y8RbbZD4Zsk9h4XTItg==}
 
   '@fastify/cors@11.3.0':
     resolution: {integrity: sha512-ggQGua+xHv1MvePbPr0v//xLYEsCXbWspquXCJS9Ot5YoRXq8J8ZWzHnxDBVnbtXosvistXo6LtNzOJswf64Fw==}
@@ -1282,20 +1282,20 @@ packages:
     peerDependencies:
       eslint: '>=7.7.0'
 
-  '@twin.org/api-core@0.10.1-next.5':
-    resolution: {integrity: sha512-Yelkl8WiqJSxtSHatzCcpnJRG73R+S+mKfXhr74+zjgltINxgvzLH5UBp0o7cBkGubfFelOR6lAacfPhrHN0TA==}
+  '@twin.org/api-core@0.10.1-next.6':
+    resolution: {integrity: sha512-mu4E9GHBQueBy5CmlBLEgcRGJqhErdHysbxKdiDvexnXYGjeXZzGh+Xz2hj6Z8f5SFRzn6hXY1+AyuEcn3ymCw==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/api-models@0.10.1-next.5':
-    resolution: {integrity: sha512-JpUka41YqxNjhxPjdwkt6wweAAaB29+oWkVWzSfiREMoS/428rrAnpqDPkyIkM2VQzlSIrkBeu3IZiiplo5vlQ==}
+  '@twin.org/api-models@0.10.1-next.6':
+    resolution: {integrity: sha512-tHWC0gBPtl5YaqHNWNi/h3svoKnZq4xByOILQ81ORODJnaXhiDrA9hK06IYHccmtYydGnwCTjFP8JJGSuscN0Q==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/api-processors@0.10.1-next.5':
-    resolution: {integrity: sha512-BnNFS7KmNcUFSFDKxSEAQHdVBoCTjVePx4JZSJ8C8O1Nst8MRWcBum0r8Q30lIEf8W03XL9hLX7g75hrYZkQ1A==}
+  '@twin.org/api-processors@0.10.1-next.6':
+    resolution: {integrity: sha512-K7U4C5jYvJc2S9ZP2RbIP5CUWFA5c96dUM2+/mCNTDNCst3+S7YWYj0DVVbNU7pNSDOcU3cEf3KRcPNv2Yaucg==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/api-server-fastify@0.10.1-next.5':
-    resolution: {integrity: sha512-wf0o/QlaxNSAYlSTdL3duCzgR+a5Q0fVulUG37h0Dw1e3ctiqhU4fzbW/vf34w/qtGxR5OVwWzldDibA4tFdFg==}
+  '@twin.org/api-server-fastify@0.10.1-next.6':
+    resolution: {integrity: sha512-7PqPfR5jxNDpIkxEbvcnDFUviASXe81mv2u8zprbaYrWunrc26Vur14h6oHUpv+lmHO4Y+Cq1aMiCTMimvL1vw==}
     engines: {node: '>=24.0.0'}
 
   '@twin.org/cli-core@0.10.1-next.10':
@@ -1314,28 +1314,28 @@ packages:
     resolution: {integrity: sha512-sCl+2Syse8J2kUF3ly4crLN3kIXgc6eSA4zoeWl4csjKpOwG9/qAhHcapgzkp1YT9KXxlnBVI3en7CDNEj2PTg==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/entity-storage-connector-memory@0.10.1-next.9':
-    resolution: {integrity: sha512-6HnXc1FigwL7wjn68KV/1C9YacXD+7UzLiDhzIspRQdwAI/RVjAgzLilBvbvHmIVg9s2gP6pQMiRPT2a/jc3FA==}
+  '@twin.org/entity-storage-connector-memory@0.10.1-next.10':
+    resolution: {integrity: sha512-rUBGwWSNuKVNuObrlkf8WV/lA+Ov1sdNccJzZrSaXCoLov5V3GxmVDbaeLuuD0g+F3Af2+zqeM5vHjrVei2EeA==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/entity-storage-models@0.10.1-next.9':
-    resolution: {integrity: sha512-RDHwYjU7dNX9HK+vZDNVtmxFO+AOutoJhklm/moqjral3+lzXHNS9OQUZgpC3iLpGpxBqEYgFUR8RRgfFGo+AA==}
+  '@twin.org/entity-storage-models@0.10.1-next.10':
+    resolution: {integrity: sha512-NNvQiIsL/JHgk4vruhRuY6LxzpJpSH6S+9xwRgAma2qLpRMlS0NEON2Np/9QWRCekNN2VeAG92SDFGDhap45tA==}
     engines: {node: '>=24.0.0'}
 
   '@twin.org/entity@0.10.1-next.10':
     resolution: {integrity: sha512-7EWfC+XyXgyNEf1DVB8IAmgqfIArWUhsLVwAbfsCkCo3TNtJlse32fQND49QHt4FNIC5QOpuO4v9N4Q61GjiLQ==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/logging-connector-entity-storage@0.10.1-next.2':
-    resolution: {integrity: sha512-lWUaL6ogGZrKK6M5M8QUnxrZ2lLIz9jZrp0QFU+3kN20fIGFvyvpHgRR+8dKgt4M7fC+aZ8H6QtBTaOTq7QtFw==}
+  '@twin.org/logging-connector-entity-storage@0.10.1-next.3':
+    resolution: {integrity: sha512-DbEaibAKAh2eKTeFrEApLMjLcjseYUuxz/4W9BNw0vS1VYtZUxT95o9q6ZxxF4DYP4EVpGQkW8fnoJGsaq2cYQ==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/logging-models@0.10.1-next.2':
-    resolution: {integrity: sha512-6R3oOKw0qS91S2lxcshKxD1XAkj8lv4fKVOmo/QvWMjaekW3TEzmgJ4ekUM2tVigaUUoxx/IuVcfa9ZSRyLPKA==}
+  '@twin.org/logging-models@0.10.1-next.3':
+    resolution: {integrity: sha512-UCy/SQCuHu5h+QwVXeeomSU1qJ86QoaPhAwdqaQQzNNfDgj121AEzGv/pY5p9uVRr+2lEdi3z+s+nAD5U7ynTQ==}
     engines: {node: '>=24.0.0'}
 
-  '@twin.org/logging-service@0.10.1-next.2':
-    resolution: {integrity: sha512-NKlKBNzEZJM1ZQ5taNUv7WUeB9StJk1tTpjabEO1IX0v6DnjhQkcTODRSLcHcHWg4KcbDN/QnSw8k+XLkbjkfA==}
+  '@twin.org/logging-service@0.10.1-next.3':
+    resolution: {integrity: sha512-kmfON3y2pN85a/px6kKvMxUUX5RnO2OTvxBLCk2p4t0lNZP6MnKT8LjfWuD4dLf6BnQMILRLchLF3wGvY2zgzQ==}
     engines: {node: '>=24.0.0'}
 
   '@twin.org/nameof-transformer@0.10.1-next.10':
@@ -2325,8 +2325,8 @@ packages:
   fastify-plugin@6.0.0:
     resolution: {integrity: sha512-fZOty7z3O7vOliF6d8bHE3wiEh1KcNnKEQensSgTk9C1DvN6nRLS++XVd86v33Hw/8u9Un8A1zDrQ8ujcQDHEg==}
 
-  fastify@5.11.2:
-    resolution: {integrity: sha512-i/eJG7nXR9OkbFgoX4jFiPOHoRq0rXqDACVAXELh5Fdg6BFBErIVZ8MyibGCwup9Go1pYrxZJ0ogIub8vVdEcQ==}
+  fastify@5.12.5:
+    resolution: {integrity: sha512-OB2k1dlxs5/NAABqeKV2FUHkSD2BbENsCak8yULVcymn3fHIPDVa9TI3SDnJSWYSllZmSYuZXy2gTnsT+Sut1A==}
 
   fastq@1.20.3:
     resolution: {integrity: sha512-XKv5nnLs6nLF71NgiKJLIZFLkPyIEuOselLG7ujZnGrRfQK8HpvY+WqKhAJUAdLomwVHErVS4LfxFlPq0/FTAw==}
@@ -4349,7 +4349,7 @@ snapshots:
       ajv-formats: 3.0.1(ajv@8.20.0)
       fast-uri: 4.2.1
 
-  '@fastify/compress@9.1.1':
+  '@fastify/compress@9.2.0':
     dependencies:
       '@fastify/accept-negotiator': 2.1.0
       fastify-plugin: 6.0.0
@@ -4648,9 +4648,9 @@ snapshots:
     dependencies:
       eslint: 10.11.0(jiti@2.6.1)(supports-color@10.2.2)
 
-  '@twin.org/api-core@0.10.1-next.5(supports-color@10.2.2)':
+  '@twin.org/api-core@0.10.1-next.6(supports-color@10.2.2)':
     dependencies:
-      '@twin.org/api-models': 0.10.1-next.5
+      '@twin.org/api-models': 0.10.1-next.6
       '@twin.org/core': 0.10.1-next.10
       '@twin.org/nameof': 0.10.1-next.10
       '@twin.org/web': 0.10.1-next.10
@@ -4660,7 +4660,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@twin.org/api-models@0.10.1-next.5':
+  '@twin.org/api-models@0.10.1-next.6':
     dependencies:
       '@twin.org/context': 0.10.1-next.10
       '@twin.org/core': 0.10.1-next.10
@@ -4668,28 +4668,28 @@ snapshots:
       '@twin.org/nameof': 0.10.1-next.10
       '@twin.org/web': 0.10.1-next.10
 
-  '@twin.org/api-processors@0.10.1-next.5':
+  '@twin.org/api-processors@0.10.1-next.6':
     dependencies:
-      '@twin.org/api-models': 0.10.1-next.5
+      '@twin.org/api-models': 0.10.1-next.6
       '@twin.org/context': 0.10.1-next.10
       '@twin.org/core': 0.10.1-next.10
-      '@twin.org/logging-models': 0.10.1-next.2
+      '@twin.org/logging-models': 0.10.1-next.3
       '@twin.org/nameof': 0.10.1-next.10
       '@twin.org/web': 0.10.1-next.10
 
-  '@twin.org/api-server-fastify@0.10.1-next.5(supports-color@10.2.2)':
+  '@twin.org/api-server-fastify@0.10.1-next.6(supports-color@10.2.2)':
     dependencies:
-      '@fastify/compress': 9.1.1
+      '@fastify/compress': 9.2.0
       '@fastify/cors': 11.3.0
-      '@twin.org/api-core': 0.10.1-next.5(supports-color@10.2.2)
-      '@twin.org/api-models': 0.10.1-next.5
-      '@twin.org/api-processors': 0.10.1-next.5
+      '@twin.org/api-core': 0.10.1-next.6(supports-color@10.2.2)
+      '@twin.org/api-models': 0.10.1-next.6
+      '@twin.org/api-processors': 0.10.1-next.6
       '@twin.org/context': 0.10.1-next.10
       '@twin.org/core': 0.10.1-next.10
-      '@twin.org/logging-models': 0.10.1-next.2
+      '@twin.org/logging-models': 0.10.1-next.3
       '@twin.org/nameof': 0.10.1-next.10
       '@twin.org/web': 0.10.1-next.10
-      fastify: 5.11.2
+      fastify: 5.12.5
       fastify-plugin: 6.0.0
       socket.io: 4.8.3(supports-color@10.2.2)
     transitivePeerDependencies:
@@ -4728,23 +4728,23 @@ snapshots:
       '@twin.org/nameof': 0.10.1-next.10
       micro-key-producer: 0.10.2
 
-  '@twin.org/entity-storage-connector-memory@0.10.1-next.9':
+  '@twin.org/entity-storage-connector-memory@0.10.1-next.10':
     dependencies:
-      '@twin.org/api-models': 0.10.1-next.5
+      '@twin.org/api-models': 0.10.1-next.6
       '@twin.org/context': 0.10.1-next.10
       '@twin.org/core': 0.10.1-next.10
       '@twin.org/entity': 0.10.1-next.10
-      '@twin.org/entity-storage-models': 0.10.1-next.9
-      '@twin.org/logging-models': 0.10.1-next.2
+      '@twin.org/entity-storage-models': 0.10.1-next.10
+      '@twin.org/logging-models': 0.10.1-next.3
       '@twin.org/nameof': 0.10.1-next.10
 
-  '@twin.org/entity-storage-models@0.10.1-next.9':
+  '@twin.org/entity-storage-models@0.10.1-next.10':
     dependencies:
       '@twin.org/context': 0.10.1-next.10
       '@twin.org/core': 0.10.1-next.10
       '@twin.org/crypto': 0.10.1-next.10
       '@twin.org/entity': 0.10.1-next.10
-      '@twin.org/logging-models': 0.10.1-next.2
+      '@twin.org/logging-models': 0.10.1-next.3
       '@twin.org/nameof': 0.10.1-next.10
 
   '@twin.org/entity@0.10.1-next.10':
@@ -4754,28 +4754,28 @@ snapshots:
       reflect-metadata: 0.2.2
       tslib: 2.8.1
 
-  '@twin.org/logging-connector-entity-storage@0.10.1-next.2':
+  '@twin.org/logging-connector-entity-storage@0.10.1-next.3':
     dependencies:
-      '@twin.org/api-models': 0.10.1-next.5
+      '@twin.org/api-models': 0.10.1-next.6
       '@twin.org/context': 0.10.1-next.10
       '@twin.org/core': 0.10.1-next.10
       '@twin.org/entity': 0.10.1-next.10
-      '@twin.org/entity-storage-models': 0.10.1-next.9
-      '@twin.org/logging-models': 0.10.1-next.2
+      '@twin.org/entity-storage-models': 0.10.1-next.10
+      '@twin.org/logging-models': 0.10.1-next.3
       '@twin.org/nameof': 0.10.1-next.10
 
-  '@twin.org/logging-models@0.10.1-next.2':
+  '@twin.org/logging-models@0.10.1-next.3':
     dependencies:
       '@twin.org/core': 0.10.1-next.10
       '@twin.org/entity': 0.10.1-next.10
       '@twin.org/nameof': 0.10.1-next.10
 
-  '@twin.org/logging-service@0.10.1-next.2':
+  '@twin.org/logging-service@0.10.1-next.3':
     dependencies:
-      '@twin.org/api-models': 0.10.1-next.5
+      '@twin.org/api-models': 0.10.1-next.6
       '@twin.org/core': 0.10.1-next.10
       '@twin.org/entity': 0.10.1-next.10
-      '@twin.org/logging-models': 0.10.1-next.2
+      '@twin.org/logging-models': 0.10.1-next.3
       '@twin.org/nameof': 0.10.1-next.10
       '@twin.org/web': 0.10.1-next.10
 
@@ -5835,7 +5835,7 @@ snapshots:
 
   fastify-plugin@6.0.0: {}
 
-  fastify@5.11.2:
+  fastify@5.12.5:
     dependencies:
       '@fastify/ajv-compiler': 4.0.6
       '@fastify/error': 4.2.0
