@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.11.0](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.11.0...event-bus-connector-local-v0.11.0) (2026-09-29)
+
+
+### Features
+
+* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* release to production ([#44](https://github.com/iotaledger/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/iotaledger/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
+* release to production ([#55](https://github.com/iotaledger/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/iotaledger/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
+* release to production [skip ci] ([#60](https://github.com/iotaledger/twin-event-bus/issues/60)) ([0f8e3d5](https://github.com/iotaledger/twin-event-bus/commit/0f8e3d57e6ef8cc697b237ca38920df57cb8d24a))
+* release to production [skip ci] ([#65](https://github.com/iotaledger/twin-event-bus/issues/65)) ([532bd82](https://github.com/iotaledger/twin-event-bus/commit/532bd8246539e19b18ec5e5473098a0b414fc8fb))
+* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
 ## [0.10.0](https://github.com/iotaledger/twin-event-bus/compare/event-bus-connector-local-v0.10.0...event-bus-connector-local-v0.10.0) (2026-09-16)
 
 
