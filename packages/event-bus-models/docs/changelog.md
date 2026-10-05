@@ -1,224 +1,224 @@
 # Changelog
 
-## [0.11.0](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.11.0...event-bus-models-v0.11.0) (2026-09-29)
+## [0.11.0](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.11.0...event-bus-models-v0.11.0) (2026-09-29)
 
 
 ### Features
 
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
-* release to production ([#44](https://github.com/iotaledger/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/iotaledger/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
-* release to production ([#55](https://github.com/iotaledger/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/iotaledger/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
-* release to production [skip ci] ([#60](https://github.com/iotaledger/twin-event-bus/issues/60)) ([0f8e3d5](https://github.com/iotaledger/twin-event-bus/commit/0f8e3d57e6ef8cc697b237ca38920df57cb8d24a))
-* release to production [skip ci] ([#65](https://github.com/iotaledger/twin-event-bus/issues/65)) ([532bd82](https://github.com/iotaledger/twin-event-bus/commit/532bd8246539e19b18ec5e5473098a0b414fc8fb))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* release to production ([#38](https://github.com/3sixtyglobal/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/3sixtyglobal/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* release to production ([#44](https://github.com/3sixtyglobal/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/3sixtyglobal/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
+* release to production ([#55](https://github.com/3sixtyglobal/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/3sixtyglobal/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
+* release to production [skip ci] ([#60](https://github.com/3sixtyglobal/twin-event-bus/issues/60)) ([0f8e3d5](https://github.com/3sixtyglobal/twin-event-bus/commit/0f8e3d57e6ef8cc697b237ca38920df57cb8d24a))
+* release to production [skip ci] ([#65](https://github.com/3sixtyglobal/twin-event-bus/issues/65)) ([532bd82](https://github.com/3sixtyglobal/twin-event-bus/commit/532bd8246539e19b18ec5e5473098a0b414fc8fb))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.10.0](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.10.0...event-bus-models-v0.10.0) (2026-09-16)
-
-
-### Features
-
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
-* release to production ([#44](https://github.com/iotaledger/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/iotaledger/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
-* release to production ([#55](https://github.com/iotaledger/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/iotaledger/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
-* release to production [skip ci] ([#60](https://github.com/iotaledger/twin-event-bus/issues/60)) ([0f8e3d5](https://github.com/iotaledger/twin-event-bus/commit/0f8e3d57e6ef8cc697b237ca38920df57cb8d24a))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
-
-## [0.9.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.2...event-bus-models-v0.9.2) (2026-08-24)
+## [0.10.0](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.10.0...event-bus-models-v0.10.0) (2026-09-16)
 
 
 ### Features
 
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
-* release to production ([#44](https://github.com/iotaledger/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/iotaledger/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
-* release to production ([#55](https://github.com/iotaledger/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/iotaledger/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* release to production ([#38](https://github.com/3sixtyglobal/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/3sixtyglobal/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* release to production ([#44](https://github.com/3sixtyglobal/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/3sixtyglobal/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
+* release to production ([#55](https://github.com/3sixtyglobal/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/3sixtyglobal/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
+* release to production [skip ci] ([#60](https://github.com/3sixtyglobal/twin-event-bus/issues/60)) ([0f8e3d5](https://github.com/3sixtyglobal/twin-event-bus/commit/0f8e3d57e6ef8cc697b237ca38920df57cb8d24a))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.9.2-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.2-next.1...event-bus-models-v0.9.2-next.2) (2026-08-07)
+## [0.9.2](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.2...event-bus-models-v0.9.2) (2026-08-24)
+
+
+### Features
+
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* release to production ([#38](https://github.com/3sixtyglobal/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/3sixtyglobal/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* release to production ([#44](https://github.com/3sixtyglobal/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/3sixtyglobal/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
+* release to production ([#55](https://github.com/3sixtyglobal/twin-event-bus/issues/55)) ([26d9b2a](https://github.com/3sixtyglobal/twin-event-bus/commit/26d9b2ab78ee9db6181e4c75cc02160ac6c9283e))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+## [0.9.2-next.2](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.2-next.1...event-bus-models-v0.9.2-next.2) (2026-08-07)
 
 
 ### Miscellaneous Chores
 
 * **event-bus-models:** Synchronize repo versions
 
-## [0.9.2-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.2-next.0...event-bus-models-v0.9.2-next.1) (2026-07-30)
+## [0.9.2-next.1](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.2-next.0...event-bus-models-v0.9.2-next.1) (2026-07-30)
 
 
 ### Features
 
-* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
-* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
-* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
-* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* add context id features ([#26](https://github.com/3sixtyglobal/twin-event-bus/issues/26)) ([19deea3](https://github.com/3sixtyglobal/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/3sixtyglobal/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* eslint migration to flat config ([92f95f4](https://github.com/3sixtyglobal/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* typescript 6 update ([22cf654](https://github.com/3sixtyglobal/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+* update dependencies ([078fb96](https://github.com/3sixtyglobal/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/3sixtyglobal/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.9.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.1...event-bus-models-v0.9.1) (2026-07-27)
-
-
-### Features
-
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
-* release to production ([#44](https://github.com/iotaledger/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/iotaledger/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
-
-## [0.9.1-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.1-next.0...event-bus-models-v0.9.1-next.1) (2026-06-26)
+## [0.9.1](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.1...event-bus-models-v0.9.1) (2026-07-27)
 
 
 ### Features
 
-* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
-* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
-* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
-* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* release to production ([#38](https://github.com/3sixtyglobal/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/3sixtyglobal/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* release to production ([#44](https://github.com/3sixtyglobal/twin-event-bus/issues/44)) ([e7c36f4](https://github.com/3sixtyglobal/twin-event-bus/commit/e7c36f46855bc66ff7cd73c66ac043211d3c4acd))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.9.0](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.0...event-bus-models-v0.9.0) (2026-06-24)
+## [0.9.1-next.1](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.1-next.0...event-bus-models-v0.9.1-next.1) (2026-06-26)
 
 
 ### Features
 
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* release to production ([#38](https://github.com/iotaledger/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/iotaledger/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* add context id features ([#26](https://github.com/3sixtyglobal/twin-event-bus/issues/26)) ([19deea3](https://github.com/3sixtyglobal/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/3sixtyglobal/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* eslint migration to flat config ([92f95f4](https://github.com/3sixtyglobal/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* typescript 6 update ([22cf654](https://github.com/3sixtyglobal/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+* update dependencies ([078fb96](https://github.com/3sixtyglobal/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/3sixtyglobal/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.9.0-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.9.0-next.0...event-bus-models-v0.9.0-next.1) (2026-06-23)
+## [0.9.0](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.0...event-bus-models-v0.9.0) (2026-06-24)
 
 
 ### Features
 
-* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
-* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
-* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
-* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* release to production ([#38](https://github.com/3sixtyglobal/twin-event-bus/issues/38)) ([5e13d5b](https://github.com/3sixtyglobal/twin-event-bus/commit/5e13d5bf473cd6ca0d5697f83c8f4648bbc95de0))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.0.3-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.3...event-bus-models-v0.0.3-next.4) (2026-06-11)
+## [0.9.0-next.1](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.9.0-next.0...event-bus-models-v0.9.0-next.1) (2026-06-23)
+
+
+### Features
+
+* add context id features ([#26](https://github.com/3sixtyglobal/twin-event-bus/issues/26)) ([19deea3](https://github.com/3sixtyglobal/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/3sixtyglobal/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* eslint migration to flat config ([92f95f4](https://github.com/3sixtyglobal/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* typescript 6 update ([22cf654](https://github.com/3sixtyglobal/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
+* update dependencies ([078fb96](https://github.com/3sixtyglobal/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/3sixtyglobal/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+## [0.0.3-next.4](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.3-next.3...event-bus-models-v0.0.3-next.4) (2026-06-11)
 
 
 ### Miscellaneous Chores
 
 * **event-bus-models:** Synchronize repo versions
 
-## [0.0.3-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.2...event-bus-models-v0.0.3-next.3) (2026-05-20)
+## [0.0.3-next.3](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.3-next.2...event-bus-models-v0.0.3-next.3) (2026-05-20)
 
 
 ### Features
 
-* update dependencies ([078fb96](https://github.com/iotaledger/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
+* update dependencies ([078fb96](https://github.com/3sixtyglobal/twin-event-bus/commit/078fb96a710d66a79a9eec33171cb54bb89822c2))
 
-## [0.0.3-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.1...event-bus-models-v0.0.3-next.2) (2026-05-11)
-
-
-### Features
-
-* typescript 6 update ([22cf654](https://github.com/iotaledger/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
-
-## [0.0.3-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.3-next.0...event-bus-models-v0.0.3-next.1) (2025-11-10)
+## [0.0.3-next.2](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.3-next.1...event-bus-models-v0.0.3-next.2) (2026-05-11)
 
 
 ### Features
 
-* add context id features ([#26](https://github.com/iotaledger/twin-event-bus/issues/26)) ([19deea3](https://github.com/iotaledger/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
-* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
-* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* typescript 6 update ([22cf654](https://github.com/3sixtyglobal/twin-event-bus/commit/22cf65488fcafd8ca0bacff4e600ace5c41f83e4))
 
-## [0.0.2-next.6](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.2-next.5...event-bus-models-v0.0.2-next.6) (2025-10-09)
+## [0.0.3-next.1](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.3-next.0...event-bus-models-v0.0.3-next.1) (2025-11-10)
 
 
 ### Features
 
-* add validate-locales ([4e11826](https://github.com/iotaledger/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* add context id features ([#26](https://github.com/3sixtyglobal/twin-event-bus/issues/26)) ([19deea3](https://github.com/3sixtyglobal/twin-event-bus/commit/19deea3d6bf116fbf0dd39976e5ec8eb51bfd7eb))
+* add validate-locales ([4e11826](https://github.com/3sixtyglobal/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
+* eslint migration to flat config ([92f95f4](https://github.com/3sixtyglobal/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* update framework core ([e5e5f89](https://github.com/3sixtyglobal/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.0.2-next.5](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.2-next.4...event-bus-models-v0.0.2-next.5) (2025-08-29)
+## [0.0.2-next.6](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.2-next.5...event-bus-models-v0.0.2-next.6) (2025-10-09)
 
 
 ### Features
 
-* eslint migration to flat config ([92f95f4](https://github.com/iotaledger/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+* add validate-locales ([4e11826](https://github.com/3sixtyglobal/twin-event-bus/commit/4e1182615e6911c8cd0a1a520f703289571f170d))
 
-## [0.0.2-next.4](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.2-next.3...event-bus-models-v0.0.2-next.4) (2025-08-25)
+## [0.0.2-next.5](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.2-next.4...event-bus-models-v0.0.2-next.5) (2025-08-29)
+
+
+### Features
+
+* eslint migration to flat config ([92f95f4](https://github.com/3sixtyglobal/twin-event-bus/commit/92f95f40971ee50069de6615fc1cb73a8e755dc4))
+
+## [0.0.2-next.4](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.2-next.3...event-bus-models-v0.0.2-next.4) (2025-08-25)
 
 
 ### Miscellaneous Chores
 
 * **event-bus-models:** Synchronize repo versions
 
-## [0.0.2-next.3](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.2-next.2...event-bus-models-v0.0.2-next.3) (2025-08-20)
+## [0.0.2-next.3](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.2-next.2...event-bus-models-v0.0.2-next.3) (2025-08-20)
 
 
 ### Miscellaneous Chores
 
 * **event-bus-models:** Synchronize repo versions
 
-## [0.0.2-next.2](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.2-next.1...event-bus-models-v0.0.2-next.2) (2025-08-19)
+## [0.0.2-next.2](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.2-next.1...event-bus-models-v0.0.2-next.2) (2025-08-19)
 
 
 ### Features
 
-* update framework core ([e5e5f89](https://github.com/iotaledger/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
+* update framework core ([e5e5f89](https://github.com/3sixtyglobal/twin-event-bus/commit/e5e5f89bed3f615182de0f7ef76a1629d45d4152))
 
-## [0.0.2-next.1](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.2-next.0...event-bus-models-v0.0.2-next.1) (2025-07-24)
+## [0.0.2-next.1](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.2-next.0...event-bus-models-v0.0.2-next.1) (2025-07-24)
 
 
 ### Features
 
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
 ## 0.0.1 (2025-07-04)
 
 
 ### Features
 
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
 
-## [0.0.1-next.11](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.1-next.10...event-bus-models-v0.0.1-next.11) (2025-06-12)
-
-
-### Features
-
-* update dependencies ([a313000](https://github.com/iotaledger/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
-
-## [0.0.1-next.10](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.1-next.9...event-bus-models-v0.0.1-next.10) (2025-04-17)
+## [0.0.1-next.11](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.1-next.10...event-bus-models-v0.0.1-next.11) (2025-06-12)
 
 
 ### Features
 
-* use shared store mechanism ([#2](https://github.com/iotaledger/twin-event-bus/issues/2)) ([1ded106](https://github.com/iotaledger/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+* update dependencies ([a313000](https://github.com/3sixtyglobal/twin-event-bus/commit/a313000b9c3264e8ed2602622219be2cefcf0474))
 
-## [0.0.1-next.9](https://github.com/iotaledger/twin-event-bus/compare/event-bus-models-v0.0.1-next.8...event-bus-models-v0.0.1-next.9) (2025-03-28)
+## [0.0.1-next.10](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.1-next.9...event-bus-models-v0.0.1-next.10) (2025-04-17)
 
 
 ### Features
 
-* improve comment ([23e86ec](https://github.com/iotaledger/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
+* use shared store mechanism ([#2](https://github.com/3sixtyglobal/twin-event-bus/issues/2)) ([1ded106](https://github.com/3sixtyglobal/twin-event-bus/commit/1ded10684e8fab4a5138231e9f2ab49e43590f00))
+
+## [0.0.1-next.9](https://github.com/3sixtyglobal/twin-event-bus/compare/event-bus-models-v0.0.1-next.8...event-bus-models-v0.0.1-next.9) (2025-03-28)
+
+
+### Features
+
+* improve comment ([23e86ec](https://github.com/3sixtyglobal/twin-event-bus/commit/23e86ecb0ad7cc94b0ebf414e51c7ac1e7f0afd3))
 
 ## v0.0.1-next.8
 

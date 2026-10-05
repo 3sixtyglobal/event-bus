@@ -4,7 +4,7 @@
 	"description": "Provides a client component for connecting to event-bus socket endpoints and handling event subscriptions.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/iotaledger/twin-event-bus.git",
+		"url": "git+https://github.com/3sixtyglobal/twin-event-bus.git",
 		"directory": "packages/event-bus-socket-client"
 	},
 	"author": "martyn.janes@iota.org",
@@ -83,7 +83,7 @@
 		"event-bus"
 	],
 	"bugs": {
-		"url": "git+https://github.com/iotaledger/twin-event-bus/issues"
+		"url": "git+https://github.com/3sixtyglobal/twin-event-bus/issues"
 	},
 	"homepage": "https://twindev.org"
 }

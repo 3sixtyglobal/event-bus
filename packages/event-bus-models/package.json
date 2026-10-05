@@ -4,7 +4,7 @@
 	"description": "Defines shared event contracts, callbacks, and connector interfaces used across the repository.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/iotaledger/twin-event-bus.git",
+		"url": "git+https://github.com/3sixtyglobal/twin-event-bus.git",
 		"directory": "packages/event-bus-models"
 	},
 	"author": "martyn.janes@iota.org",
@@ -74,7 +74,7 @@
 		"schemas"
 	],
 	"bugs": {
-		"url": "git+https://github.com/iotaledger/twin-event-bus/issues"
+		"url": "git+https://github.com/3sixtyglobal/twin-event-bus/issues"
 	},
 	"homepage": "https://twindev.org"
 }
