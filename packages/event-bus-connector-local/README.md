@@ -1,11 +1,11 @@
-# TWIN Event Bus Connector Entity Storage
+# 3Sixty Event Bus Connector Entity Storage
 
 Provides an in-memory local connector that routes events between components without network transport.
 
 ## Installation
 
 ```shell
-npm install @twin.org/event-bus-connector-local
+npm install @3sixty/event-bus-connector-local
 ```
 
 ## Examples

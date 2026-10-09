@@ -10,6 +10,7 @@
 	"versioning": "prerelease",
 	"prerelease": true,
 	"prerelease-type": "next",
+	"last-release-sha": "5f1762641afd692e5756df38eac2fd0518a093aa",
 	"packages": {
 		"packages/event-bus-models": {
 			"package-name": "event-bus-models",

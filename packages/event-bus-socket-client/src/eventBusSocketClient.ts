@@ -1,7 +1,7 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { BaseSocketClient } from "@twin.org/api-core";
-import type { IHttpResponse } from "@twin.org/api-models";
+import { BaseSocketClient } from "@3sixty/api-core";
+import type { IHttpResponse } from "@3sixty/api-models";
 import {
 	BaseError,
 	ComponentFactory,
@@ -11,7 +11,7 @@ import {
 	NotSupportedError,
 	RandomHelper,
 	type IError
-} from "@twin.org/core";
+} from "@3sixty/core";
 import type {
 	EventBusCallback,
 	IEvent,
@@ -19,9 +19,9 @@ import type {
 	IEventBusSubscribeRequest,
 	IEventBusSubscribeResponse,
 	IEventBusUnsubscribeRequest
-} from "@twin.org/event-bus-models";
-import type { ILoggingComponent } from "@twin.org/logging-models";
-import { nameof } from "@twin.org/nameof";
+} from "@3sixty/event-bus-models";
+import type { ILoggingComponent } from "@3sixty/logging-models";
+import { nameof } from "@3sixty/nameof";
 import type { IEventBusSocketClientConstructorOptions } from "./models/IEventBusSocketClientConstructorOptions.js";
 
 /**

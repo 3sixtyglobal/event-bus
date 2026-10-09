@@ -5,7 +5,7 @@ Use these snippets to wire in-memory pub/sub flows for tests and lightweight run
 ## LocalEventBusConnector
 
 ```typescript
-import { LocalEventBusConnector } from '@twin.org/event-bus-connector-local';
+import { LocalEventBusConnector } from '@3sixty/event-bus-connector-local';
 
 interface StatusPayload {
   buildId: string;
@@ -34,9 +34,9 @@ console.log(received); // ['first:B-100:started', 'second:B-100:started', 'secon
 ```
 
 ```typescript
-import { ComponentFactory } from '@twin.org/core';
-import { LocalEventBusConnector } from '@twin.org/event-bus-connector-local';
-import type { ILoggingComponent } from '@twin.org/logging-models';
+import { ComponentFactory } from '@3sixty/core';
+import { LocalEventBusConnector } from '@3sixty/event-bus-connector-local';
+import type { ILoggingComponent } from '@3sixty/logging-models';
 
 interface AuditPayload {
   counter: number;

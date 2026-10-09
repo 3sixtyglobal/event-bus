@@ -1,11 +1,11 @@
-# TWIN Event Bus Socket Client
+# 3Sixty Event Bus Socket Client
 
 Provides a client component for connecting to event-bus socket endpoints and handling event subscriptions.
 
 ## Installation
 
 ```shell
-npm install @twin.org/event-bus-socket-client
+npm install @3sixty/event-bus-socket-client
 ```
 
 ## Examples

@@ -9,7 +9,7 @@ import {
   EventBusConnectorFactory,
   type EventBusCallback,
   type IEventBusConnector
-} from '@twin.org/event-bus-models';
+} from '@3sixty/event-bus-models';
 
 class TestConnector implements IEventBusConnector {
   private readonly subscriptions: Map<string, EventBusCallback<unknown>> = new Map();
@@ -55,7 +55,7 @@ import {
   type IEventBusSubscribeRequest,
   type IEventBusSubscribeResponse,
   type IEventBusUnsubscribeRequest
-} from '@twin.org/event-bus-models';
+} from '@3sixty/event-bus-models';
 
 interface OrderCreatedData {
   orderId: string;

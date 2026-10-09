@@ -1,12 +1,12 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { Guards } from "@twin.org/core";
+import { Guards } from "@3sixty/core";
 import {
 	EventBusConnectorFactory,
 	type EventBusCallback,
 	type IEventBusConnector
-} from "@twin.org/event-bus-models";
-import { nameof } from "@twin.org/nameof";
+} from "@3sixty/event-bus-models";
+import { nameof } from "@3sixty/nameof";
 import type { IEventBusServiceConstructorOptions } from "./models/IEventBusServiceConstructorOptions.js";
 
 /**

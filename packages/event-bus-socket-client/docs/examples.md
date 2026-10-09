@@ -5,7 +5,7 @@ These examples show how to receive server-published events over sockets with typ
 ## EventBusSocketClient
 
 ```typescript
-import { EventBusSocketClient } from '@twin.org/event-bus-socket-client';
+import { EventBusSocketClient } from '@3sixty/event-bus-socket-client';
 
 interface MarketPayload {
   symbol: string;
@@ -39,8 +39,8 @@ console.log(received); // []
 ```
 
 ```typescript
-import { NotSupportedError } from '@twin.org/core';
-import { EventBusSocketClient } from '@twin.org/event-bus-socket-client';
+import { NotSupportedError } from '@3sixty/core';
+import { EventBusSocketClient } from '@3sixty/event-bus-socket-client';
 
 interface MessagePayload {
   body: string;

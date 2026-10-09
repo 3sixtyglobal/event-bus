@@ -1,4 +1,4 @@
-# @twin.org/event-bus-connector-local
+# @3sixty/event-bus-connector-local
 
 ## Classes
 

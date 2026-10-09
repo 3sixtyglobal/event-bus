@@ -1,4 +1,4 @@
-# @twin.org/event-bus-models
+# @3sixty/event-bus-models
 
 ## Interfaces
 

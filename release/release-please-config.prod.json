@@ -8,6 +8,7 @@
 	"release-type": "node",
 	"initial-version": "0.0.1",
 	"versioning": "default",
+	"last-release-sha": "2caafac156a921f4f24713cc32dabfc0ea6726d3",
 	"packages": {
 		"packages/event-bus-models": {
 			"package-name": "event-bus-models",

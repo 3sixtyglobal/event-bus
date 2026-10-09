@@ -1,24 +1,24 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { SocketRouteProcessor } from "@twin.org/api-processors";
-import { FastifyWebServer } from "@twin.org/api-server-fastify";
-import { ComponentFactory } from "@twin.org/core";
-import { MemoryEntityStorageConnector } from "@twin.org/entity-storage-connector-memory";
-import { EntityStorageConnectorFactory } from "@twin.org/entity-storage-models";
-import { LocalEventBusConnector } from "@twin.org/event-bus-connector-local";
+import { SocketRouteProcessor } from "@3sixty/api-processors";
+import { FastifyWebServer } from "@3sixty/api-server-fastify";
+import { ComponentFactory } from "@3sixty/core";
+import { MemoryEntityStorageConnector } from "@3sixty/entity-storage-connector-memory";
+import { EntityStorageConnectorFactory } from "@3sixty/entity-storage-models";
+import { LocalEventBusConnector } from "@3sixty/event-bus-connector-local";
 import {
 	EventBusConnectorFactory,
 	type IEventBusComponent,
 	type IEvent
-} from "@twin.org/event-bus-models";
-import { EventBusService, generateSocketRoutesEventBus } from "@twin.org/event-bus-service";
+} from "@3sixty/event-bus-models";
+import { EventBusService, generateSocketRoutesEventBus } from "@3sixty/event-bus-service";
 import {
 	EntityStorageLoggingConnector,
 	initSchema,
 	type LogEntry
-} from "@twin.org/logging-connector-entity-storage";
-import { LoggingConnectorFactory } from "@twin.org/logging-models";
-import { nameof } from "@twin.org/nameof";
+} from "@3sixty/logging-connector-entity-storage";
+import { LoggingConnectorFactory } from "@3sixty/logging-models";
+import { nameof } from "@3sixty/nameof";
 import type { Socket } from "socket.io-client";
 import { EventBusSocketClient } from "../src/eventBusSocketClient.js";
 

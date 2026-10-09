@@ -1,6 +1,6 @@
 {
-	"packages/event-bus-models": "0.11.1-next.0",
-	"packages/event-bus-connector-local": "0.11.1-next.0",
-	"packages/event-bus-service": "0.11.1-next.0",
-	"packages/event-bus-socket-client": "0.11.1-next.0"
+	"packages/event-bus-models": "0.20.0-next.0",
+	"packages/event-bus-connector-local": "0.20.0-next.0",
+	"packages/event-bus-service": "0.20.0-next.0",
+	"packages/event-bus-socket-client": "0.20.0-next.0"
 }

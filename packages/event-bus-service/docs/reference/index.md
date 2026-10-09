@@ -1,4 +1,4 @@
-# @twin.org/event-bus-service
+# @3sixty/event-bus-service
 
 ## Classes
 

@@ -1,11 +1,11 @@
-# TWIN Event Bus Models
+# 3Sixty Event Bus Models
 
 Defines shared event contracts, callbacks, and connector interfaces used across the repository.
 
 ## Installation
 
 ```shell
-npm install @twin.org/event-bus-models
+npm install @3sixty/event-bus-models
 ```
 
 ## Examples

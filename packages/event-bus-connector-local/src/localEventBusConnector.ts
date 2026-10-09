@@ -1,9 +1,9 @@
 // Copyright 2024 IOTA Stiftung.
 // SPDX-License-Identifier: Apache-2.0.
-import { BaseError, ComponentFactory, Converter, Guards, RandomHelper } from "@twin.org/core";
-import type { EventBusCallback, IEvent, IEventBusConnector } from "@twin.org/event-bus-models";
-import type { ILoggingComponent } from "@twin.org/logging-models";
-import { nameof } from "@twin.org/nameof";
+import { BaseError, ComponentFactory, Converter, Guards, RandomHelper } from "@3sixty/core";
+import type { EventBusCallback, IEvent, IEventBusConnector } from "@3sixty/event-bus-models";
+import type { ILoggingComponent } from "@3sixty/logging-models";
+import { nameof } from "@3sixty/nameof";
 import type { ILocalEventBusConnectorConstructorOptions } from "./models/ILocalEventBusConnectorConstructorOptions.js";
 
 /**

@@ -1,11 +1,11 @@
-# TWIN Event Bus Service
+# 3Sixty Event Bus Service
 
 Exposes server routes and socket entry points to publish and subscribe to event streams over WebSocket connections.
 
 ## Installation
 
 ```shell
-npm install @twin.org/event-bus-service
+npm install @3sixty/event-bus-service
 ```
 
 ## Examples

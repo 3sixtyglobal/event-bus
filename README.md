@@ -1,4 +1,4 @@
-# TWIN Event Bus
+# 3Sixty Event Bus
 
 This repository provides a cohesive set of building blocks for event-driven systems, including shared contracts, local connectors, socket-based services, and client components. Together, these packages make it easier to publish, route, and consume events consistently across applications.
 

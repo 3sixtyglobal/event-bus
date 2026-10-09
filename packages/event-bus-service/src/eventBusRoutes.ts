@@ -5,16 +5,16 @@ import type {
 	ISocketRequestContext,
 	ISocketRoute,
 	ITag
-} from "@twin.org/api-models";
-import { ComponentFactory, Guards } from "@twin.org/core";
+} from "@3sixty/api-models";
+import { ComponentFactory, Guards } from "@3sixty/core";
 import type {
 	IEventBusComponent,
 	IEventBusPublish,
 	IEventBusSubscribeRequest,
 	IEventBusSubscribeResponse,
 	IEventBusUnsubscribeRequest
-} from "@twin.org/event-bus-models";
-import { nameof } from "@twin.org/nameof";
+} from "@3sixty/event-bus-models";
+import { nameof } from "@3sixty/nameof";
 
 /**
  * The source used when communicating about these routes.

@@ -5,9 +5,9 @@ Use these patterns to expose pub/sub behaviour through application components an
 ## EventBusService
 
 ```typescript
-import { LocalEventBusConnector } from '@twin.org/event-bus-connector-local';
-import { EventBusConnectorFactory } from '@twin.org/event-bus-models';
-import { EventBusService } from '@twin.org/event-bus-service';
+import { LocalEventBusConnector } from '@3sixty/event-bus-connector-local';
+import { EventBusConnectorFactory } from '@3sixty/event-bus-models';
+import { EventBusService } from '@3sixty/event-bus-service';
 
 interface BuildMetricPayload {
   buildId: string;
@@ -46,15 +46,15 @@ console.log(metrics); // [62, 71]
 ## Socket Routes
 
 ```typescript
-import { ComponentFactory } from '@twin.org/core';
-import { LocalEventBusConnector } from '@twin.org/event-bus-connector-local';
-import { EventBusConnectorFactory } from '@twin.org/event-bus-models';
+import { ComponentFactory } from '@3sixty/core';
+import { LocalEventBusConnector } from '@3sixty/event-bus-connector-local';
+import { EventBusConnectorFactory } from '@3sixty/event-bus-models';
 import {
   EventBusService,
   generateSocketRoutesEventBus,
   socketEntryPoints,
   tagsEventBus
-} from '@twin.org/event-bus-service';
+} from '@3sixty/event-bus-service';
 
 EventBusConnectorFactory.register('event-bus', () => new LocalEventBusConnector());
 
