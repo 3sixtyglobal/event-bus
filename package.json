@@ -1,5 +1,5 @@
 {
-	"name": "@3sixty/event-bus",
+	"name": "3sixty-event-bus",
 	"version": "0.0.0",
 	"description": "Event bus components, connectors, and services for routing events across applications.",
 	"repository": {
