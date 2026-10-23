@@ -4,7 +4,7 @@ Event record.
 
 ## Type Parameters
 
-### T
+### T {#t}
 
 `T` = `unknown`
 
