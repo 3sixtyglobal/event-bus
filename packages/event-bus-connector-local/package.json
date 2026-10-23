@@ -1,6 +1,6 @@
 {
 	"name": "@3sixty/event-bus-connector-local",
-	"version": "0.20.0-next.0",
+	"version": "0.20.0-next.1",
 	"description": "Provides an in-memory local connector that routes events between components without network transport.",
 	"repository": {
 		"type": "git",
@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"@3sixty/core": "next",
-		"@3sixty/event-bus-models": "0.20.0-next.0",
+		"@3sixty/event-bus-models": "0.20.0-next.1",
 		"@3sixty/logging-models": "next",
 		"@3sixty/nameof": "next"
 	},
