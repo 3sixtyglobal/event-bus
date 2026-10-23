@@ -6,7 +6,7 @@ Callback invoked when an event is received on a subscribed topic.
 
 ## Type Parameters
 
-### T
+### T {#t}
 
 `T`
 
