@@ -1,6 +1,6 @@
 {
 	"name": "@3sixty/event-bus-socket-client",
-	"version": "0.20.0-next.0",
+	"version": "0.20.0-next.1",
 	"description": "Provides a client component for connecting to event-bus socket endpoints and handling event subscriptions.",
 	"repository": {
 		"type": "git",
@@ -31,7 +31,7 @@
 		"@3sixty/api-core": "next",
 		"@3sixty/api-models": "next",
 		"@3sixty/core": "next",
-		"@3sixty/event-bus-models": "0.20.0-next.0",
+		"@3sixty/event-bus-models": "0.20.0-next.1",
 		"@3sixty/logging-models": "next",
 		"@3sixty/nameof": "next"
 	},
@@ -40,8 +40,8 @@
 		"@3sixty/api-server-fastify": "next",
 		"@3sixty/entity-storage-connector-memory": "next",
 		"@3sixty/entity-storage-models": "next",
-		"@3sixty/event-bus-connector-local": "0.20.0-next.0",
-		"@3sixty/event-bus-service": "0.20.0-next.0",
+		"@3sixty/event-bus-connector-local": "0.20.0-next.1",
+		"@3sixty/event-bus-service": "0.20.0-next.1",
 		"@3sixty/logging-connector-entity-storage": "next",
 		"@3sixty/nameof-transformer": "next",
 		"@3sixty/nameof-vitest-plugin": "next",
