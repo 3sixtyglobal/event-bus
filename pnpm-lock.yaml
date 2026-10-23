@@ -245,7 +245,7 @@ importers:
         specifier: next
         version: 0.20.0-next.2
       '@3sixty/event-bus-models':
-        specifier: 0.20.0-next.0
+        specifier: 0.20.0-next.1
         version: link:../event-bus-models
       '@3sixty/logging-models':
         specifier: next
@@ -358,7 +358,7 @@ importers:
         specifier: next
         version: 0.20.0-next.2
       '@3sixty/event-bus-models':
-        specifier: 0.20.0-next.0
+        specifier: 0.20.0-next.1
         version: link:../event-bus-models
       '@3sixty/logging-models':
         specifier: next
@@ -377,7 +377,7 @@ importers:
         specifier: next
         version: 0.20.0-next.1
       '@3sixty/event-bus-connector-local':
-        specifier: 0.20.0-next.0
+        specifier: 0.20.0-next.1
         version: link:../event-bus-connector-local
       '@3sixty/logging-connector-entity-storage':
         specifier: next
@@ -434,7 +434,7 @@ importers:
         specifier: next
         version: 0.20.0-next.2
       '@3sixty/event-bus-models':
-        specifier: 0.20.0-next.0
+        specifier: 0.20.0-next.1
         version: link:../event-bus-models
       '@3sixty/logging-models':
         specifier: next
@@ -456,10 +456,10 @@ importers:
         specifier: next
         version: 0.20.0-next.1
       '@3sixty/event-bus-connector-local':
-        specifier: 0.20.0-next.0
+        specifier: 0.20.0-next.1
         version: link:../event-bus-connector-local
       '@3sixty/event-bus-service':
-        specifier: 0.20.0-next.0
+        specifier: 0.20.0-next.1
         version: link:../event-bus-service
       '@3sixty/logging-connector-entity-storage':
         specifier: next
@@ -2423,9 +2423,6 @@ packages:
 
   fast-uri@4.2.3:
     resolution: {integrity: sha512-I1PXwP5eAhlNlcdpjt9CgB59op2ZvZfxw+BkqGFVIUOgNpCVTcTqp3HhTX7brxj5vsip+nSY4nTvff+eIA76hg==}
-
-  fastify-plugin@6.0.0:
-    resolution: {integrity: sha512-fZOty7z3O7vOliF6d8bHE3wiEh1KcNnKEQensSgTk9C1DvN6nRLS++XVd86v33Hw/8u9Un8A1zDrQ8ujcQDHEg==}
 
   fastify-plugin@6.0.1:
     resolution: {integrity: sha512-4wW4RxSmvPXLrh5mgQEiu43qU3bw44N2ss4FTkTkQIbprUhE+/s43QX0j/ttcztdWK7PEkHqVthdc5GdEGDvjA==}
@@ -4644,12 +4641,12 @@ snapshots:
   '@fastify/compress@9.2.2':
     dependencies:
       '@fastify/accept-negotiator': 2.1.1
-      fastify-plugin: 6.0.0
+      fastify-plugin: 6.0.1
       mime-db: 1.54.0
 
   '@fastify/cors@11.3.1':
     dependencies:
-      fastify-plugin: 6.0.0
+      fastify-plugin: 6.0.1
       toad-cache: 3.7.4
 
   '@fastify/deepmerge@3.2.2': {}
@@ -6019,8 +6016,6 @@ snapshots:
   fast-uri@3.1.9: {}
 
   fast-uri@4.2.3: {}
-
-  fastify-plugin@6.0.0: {}
 
   fastify-plugin@6.0.1: {}
 
