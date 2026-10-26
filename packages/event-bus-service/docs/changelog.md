@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.20.0-next.2](https://github.com/3sixtyglobal/event-bus/compare/event-bus-service-v0.20.0-next.1...event-bus-service-v0.20.0-next.2) (2026-10-26)
+
+
+### Features
+
+* release to next [skip ci] ([#5](https://github.com/3sixtyglobal/event-bus/issues/5)) ([777dbd6](https://github.com/3sixtyglobal/event-bus/commit/777dbd613b2b15364fece1bfce7b10b4a3a11bae))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @3sixty/event-bus-models bumped from 0.20.0-next.1 to 0.20.0-next.2
+  * devDependencies
+    * @3sixty/event-bus-connector-local bumped from 0.20.0-next.1 to 0.20.0-next.2
+
 ## [0.20.0-next.1](https://github.com/3sixtyglobal/event-bus/compare/event-bus-service-v0.20.0-next.0...event-bus-service-v0.20.0-next.1) (2026-10-23)
 
 
