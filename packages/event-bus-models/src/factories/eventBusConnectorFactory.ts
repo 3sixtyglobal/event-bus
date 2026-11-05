@@ -6,5 +6,4 @@ import type { IEventBusConnector } from "../models/IEventBusConnector.js";
 /**
  * Factory for creating event bus connectors.
  */
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export const EventBusConnectorFactory = Factory.createFactory<IEventBusConnector>("event-bus");
