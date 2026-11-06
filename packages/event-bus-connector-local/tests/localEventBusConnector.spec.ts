@@ -1,4 +1,5 @@
 // Copyright 2024 IOTA Stiftung.
+// Copyright 2026 3Sixty Trade Ltd.
 // SPDX-License-Identifier: Apache-2.0.
 import { ComponentFactory, GeneralError, RandomHelper } from "@3sixty/core";
 import { MemoryEntityStorageConnector } from "@3sixty/entity-storage-connector-memory";
@@ -16,7 +17,7 @@ import { LocalEventBusConnector } from "../src/localEventBusConnector.js";
 /**
  * Test payload for testing.
  */
-interface TestPayload {
+interface ITestPayload {
 	/**
 	 * The counter.
 	 */
@@ -99,14 +100,14 @@ describe("LocalEventBusConnector", () => {
 
 		let counter = 0;
 		let receivedTopic = "";
-		const subscriptionId = await localEventBusConnector.subscribe<TestPayload>(
+		const subscriptionId = await localEventBusConnector.subscribe<ITestPayload>(
 			"test",
 			async event => {
 				receivedTopic = event.topic;
 				counter = event.data.counter;
 			}
 		);
-		await localEventBusConnector.publish<TestPayload>("test", { counter: 5 });
+		await localEventBusConnector.publish<ITestPayload>("test", { counter: 5 });
 
 		expect(subscriptionId.length).toEqual(32);
 		expect(counter).toEqual(5);
@@ -141,7 +142,7 @@ describe("LocalEventBusConnector", () => {
 
 		let counter = 0;
 		let receivedTopic = "";
-		const subscriptionId = await localEventBusConnector.subscribe<TestPayload>(
+		const subscriptionId = await localEventBusConnector.subscribe<ITestPayload>(
 			"test",
 			async event => {
 				receivedTopic = event.topic;
@@ -149,7 +150,7 @@ describe("LocalEventBusConnector", () => {
 			}
 		);
 		await localEventBusConnector.unsubscribe(subscriptionId);
-		await localEventBusConnector.publish<TestPayload>("test", { counter: 5 });
+		await localEventBusConnector.publish<ITestPayload>("test", { counter: 5 });
 
 		expect(subscriptionId.length).toEqual(32);
 		expect(counter).toEqual(0);
@@ -194,7 +195,7 @@ describe("LocalEventBusConnector", () => {
 
 		let counter = 0;
 		let receivedTopic = "";
-		const subscriptionId = await localEventBusConnector.subscribe<TestPayload>(
+		const subscriptionId = await localEventBusConnector.subscribe<ITestPayload>(
 			"test",
 			async event => {
 				receivedTopic = event.topic;
@@ -202,7 +203,7 @@ describe("LocalEventBusConnector", () => {
 			}
 		);
 		await localEventBusConnector.unsubscribe(subscriptionId);
-		await localEventBusConnector.publish<TestPayload>("test", { counter: 5 });
+		await localEventBusConnector.publish<ITestPayload>("test", { counter: 5 });
 
 		expect(subscriptionId.length).toEqual(32);
 		expect(counter).toEqual(0);
@@ -245,13 +246,13 @@ describe("LocalEventBusConnector", () => {
 	test("can log error if fail during callback", async () => {
 		const localEventBusConnector = new LocalEventBusConnector({ loggingComponentType: "logging" });
 
-		const subscriptionId = await localEventBusConnector.subscribe<TestPayload>(
+		const subscriptionId = await localEventBusConnector.subscribe<ITestPayload>(
 			"test",
 			async event => {
 				throw new GeneralError("test", "test");
 			}
 		);
-		await localEventBusConnector.publish<TestPayload>("test", { counter: 5 });
+		await localEventBusConnector.publish<ITestPayload>("test", { counter: 5 });
 
 		const logs = await memoryEntityStorage.getStore();
 		delete logs[2]?.error?.[0]?.stack;
